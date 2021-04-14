@@ -1,7 +1,6 @@
 import { Container, makeStyles } from '@material-ui/core'
 import Header from './Header'
 import Meta from './Meta'
-import Nav from './Nav'
 
 type LayoutProps = {
   children: JSX.Element
@@ -9,7 +8,8 @@ type LayoutProps = {
 
 const useStyles = makeStyles({
   container: {
-    paddingTop: '96px',
+    padding: '96px 35px 35px 35px',
+    height: '100vh',
   },
 })
 
@@ -21,7 +21,6 @@ const Layout = ({ children }: LayoutProps) => {
       <Meta />
       <Header />
       <Container className={classes.container} component='main'>{children}</Container>
-      <Nav />
     </>
   )
 }
