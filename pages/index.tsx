@@ -24,10 +24,8 @@ const useStyles = makeStyles(({ palette }) => ({
     marginTop: '35px',
     '& p > span': {
       color: palette.primary.main,
+      fontWeight: 500,
     },
-    '& > button': {
-      width: '174px',
-    }
   },
 }))
 
@@ -61,28 +59,26 @@ export default function Home() {
         </div>
       </Grid>
       <Grid
-      className={classes.article}
+        className={classes.article}
         item
         container
         component='article'
         direction='row'
         justify='space-between'
       >
-
-          <Typography variant='body1' color='textSecondary'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            quis elit vehicula, dapibus eros quis, suscipit diam. Curabitur
-            efficitur facilisis rutrum. Pellentesque odio massa, semper vitae
-            laoreet sed, interdum id elit. Vestibulum mi ipsum, auctor non felis
-            non, lobortis <span>ReactJS</span>, <span>TypeScript</span>,{' '}
-            <span>NextJS</span>, <span>Apollo Client</span> tortor. Etiam
-            tincidunt odio dui, sed vulputate sem gravida sed. Nullam erat
-            felis, porta eget ante sed, suscipit congue nisl. Nulla a sem
-            mauris.
-          </Typography>
-          <Button variant='contained' color='primary' size='medium'>
-            [download resume]
-          </Button>
+        <Typography variant='body1' color='textSecondary'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
+          elit vehicula, dapibus eros quis, suscipit diam. Curabitur efficitur
+          facilisis rutrum. Pellentesque odio massa, semper vitae laoreet sed,
+          interdum id elit. Vestibulum mi ipsum, auctor non felis non, lobortis{' '}
+          <span>ReactJS</span>, <span>TypeScript</span>, <span>NextJS</span>,{' '}
+          <span>Apollo Client</span> tortor. Etiam tincidunt odio dui, sed
+          vulputate sem gravida sed. Nullam erat felis, porta eget ante sed,
+          suscipit congue nisl. Nulla a sem mauris.
+        </Typography>
+        <Button variant='contained' color='primary' size='medium'>
+          [download resume]
+        </Button>
       </Grid>
     </Grid>
   )

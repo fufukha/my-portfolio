@@ -8,7 +8,7 @@ type LayoutProps = {
 
 const useStyles = makeStyles({
   container: {
-    padding: '96px 35px 35px 35px',
+    padding: '96px 35px 70px 35px',
     height: '100vh',
   },
 })
