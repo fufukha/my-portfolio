@@ -1,11 +1,15 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import orange from '@material-ui/core/colors/orange'
+import grey from '@material-ui/core/colors/grey'
 
 let theme = createMuiTheme({
   palette: {
     primary: {
       main: orange[700],
     },
+    text: {
+      secondary: grey[700]
+    }
   },
   typography: {
     fontFamily: 'Goth A1, Roboto, Helvetica, Arial, sans-serif',
@@ -18,8 +22,10 @@ let theme = createMuiTheme({
       fontFamily: 'Roboto Mono, monospace',
       fontSize: '1.25rem',
       fontWeight: 500,
-      color: '#595959',
     },
+    body1: {
+      fontSize: '0.875rem'
+    }
   },
   shape: {
     borderRadius: 0,
