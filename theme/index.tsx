@@ -12,7 +12,7 @@ let theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: 'Goth A1, Roboto, Helvetica, Arial, sans-serif',
+    fontFamily: 'Gothic A1, Roboto, Helvetica, Arial, sans-serif',
     h1: {
       fontFamily: 'Roboto Mono, monospace',
       fontSize: '1.5rem',
@@ -30,6 +30,14 @@ let theme = createMuiTheme({
   shape: {
     borderRadius: 0,
   },
+  overrides: {
+    MuiButton: {
+      root: {
+        textTransform: 'lowercase',
+        fontWeidght: 400,
+      }
+    }
+  }
 })
 
 theme = responsiveFontSizes(theme)
