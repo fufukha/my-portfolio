@@ -8,11 +8,16 @@ let theme = createMuiTheme({
       main: orange[700],
     },
     text: {
-      secondary: grey[700]
+      secondary: grey[700],
+    },
+    background: {
+      // default: '#f3f2f1'
+      default: '#fafaf9'
     }
   },
   typography: {
-    fontFamily: 'Gothic A1, Roboto, Helvetica, Arial, sans-serif',
+    fontFamily:
+      'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue, Roboto, Helvetica, Arial, sans-serif',
     h1: {
       fontFamily: 'Roboto Mono, monospace',
       fontSize: '1.5rem',
@@ -23,9 +28,21 @@ let theme = createMuiTheme({
       fontSize: '1.25rem',
       fontWeight: 500,
     },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: 700,
+      lineHeight: 1.25,
+    },
     body1: {
-      fontSize: '0.875rem'
-    }
+      fontSize: '0.875rem',
+    },
+    subtitle1: {
+      fontSize: '0.625rem',
+      letterSpacing: '3px',
+      fontWeight: 700,
+      textTransform: 'uppercase',
+      lineHeight: 1.5,
+    },
   },
   shape: {
     borderRadius: 0,
@@ -35,9 +52,9 @@ let theme = createMuiTheme({
       root: {
         textTransform: 'lowercase',
         fontWeidght: 400,
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 theme = responsiveFontSizes(theme)
