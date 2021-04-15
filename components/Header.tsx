@@ -1,13 +1,12 @@
-import { AppBar, IconButton, Toolbar } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Menu from './Menu'
 
 const Header = () => {
   return (
     <AppBar position='fixed' color='transparent' elevation={0}>
       <Toolbar component='header'>
-        <IconButton>
-          <MenuIcon />
-        </IconButton>
+        <Menu />
       </Toolbar>
     </AppBar>
   )
