@@ -7,10 +7,14 @@ const projects = () => {
     <>
       <Meta title={'projects'} />
       <section>
-        <Typography variant='h1' component='h1' gutterBottom>Experience</Typography>
+        <Typography variant='h1' component='h1' gutterBottom>
+          Experience
+        </Typography>
       </section>
       <section>
-        <Typography variant='h1' component='h2' gutterBottom>Projects</Typography>
+        <Typography variant='h1' component='h2' gutterBottom>
+          Projects
+        </Typography>
         <Repo />
       </section>
     </>
