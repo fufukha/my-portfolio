@@ -1,19 +1,20 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
-import orange from '@material-ui/core/colors/orange'
 import grey from '@material-ui/core/colors/grey'
+import orange from '@material-ui/core/colors/orange'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 
 let theme = createMuiTheme({
   palette: {
     primary: {
       main: orange[700],
+      light: orange[100],
+      dark: orange[900],
     },
     text: {
       secondary: grey[700],
     },
     background: {
-      // default: '#f3f2f1'
-      default: '#fafaf9'
-    }
+      default: '#fafaf9',
+    },
   },
   typography: {
     fontFamily:

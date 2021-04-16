@@ -1,13 +1,13 @@
+import { makeStyles } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
-import Chip from '@material-ui/core/Chip'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LaunchIcon from '@material-ui/icons/Launch'
-import IconButton from '@material-ui/core/IconButton'
-import { makeStyles } from '@material-ui/core'
+import TopicList from './TopicList'
 
 const useStyles = makeStyles({
   img: {
@@ -23,8 +23,12 @@ const Repo = () => {
     <Card elevation={2}>
       {/* <CardHeader title='typescript' subheader='Type in Arabic'></CardHeader> */}
       <CardContent component='header'>
-        <Typography component='h3' variant='subtitle1'>typescript</Typography>
-        <Typography component='h4' variant='h3'>Type in Arabic</Typography>
+        <Typography component='h3' variant='subtitle1' gutterBottom>
+          typescript
+        </Typography>
+        <Typography component='h4' variant='h3'>
+          Type in Arabic
+        </Typography>
       </CardContent>
       <CardMedia
         className={classes.img}
@@ -33,16 +37,17 @@ const Repo = () => {
         title='webpage'
       />
       <CardContent>
-        <Typography variant='body1' color='textSecondary' gutterBottom component='p'>
+        <Typography
+          variant='body1'
+          color='textSecondary'
+          gutterBottom
+          component='p'
+        >
           Cras ac nisl metus. Maecenas eget dui risus. Nullam justo risus,
           luctus et bibendum vitae, elementum sed eros. Vestibulum tincidunt
           tortor quam, id volutpat arcu consequat ac.{' '}
         </Typography>
-        <Chip
-        label="react"
-        color='primary'
-        size="small"
-      />
+        <TopicList topicList={['typscript', 'reactJS', 'Apollo Client']} />
       </CardContent>
       <CardActions>
         <IconButton
