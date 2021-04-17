@@ -1,15 +1,7 @@
-import {
-  ApolloClient,
-  createHttpLink,
-  gql,
-  InMemoryCache,
-} from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
 import Typography from '@material-ui/core/Typography'
 import { GetStaticProps } from 'next'
 import Meta from '../components/Meta'
 import Repo from '../components/Repo'
-import token from '../config'
 
 interface RepositoryTopic {
   __typename: 'RepositoryTopic'
@@ -38,6 +30,9 @@ interface Repository {
   openGraphImageUrl: string
   repositoryTopics: RepositoryTopics
 }
+import apolloClient from '../lib/apolloClient'
+import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
+import { Repository, RepositoryTopic } from '../types'
 
 type ProjectProps = {
   repositories: Repository[]
@@ -95,56 +90,8 @@ const projects = ({ repositories }: ProjectProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql',
-  })
-
-  const authLink = setContext((_, { headers }) => {
-    return {
-      headers: {
-        ...headers,
-        accept: 'application/vnd.github.v3+json',
-        authorization: token ? `Bearer ${token}` : '',
-      },
-    }
-  })
-
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  })
-
-  const { data } = await client.query({
-    query: gql`
-      query PinnedRespositories {
-        viewer {
-          pinnedItems(first: 50) {
-            pageInfo {
-              startCursor
-            }
-            nodes {
-              ... on Repository {
-                name
-                url
-                homepageUrl
-                description
-                openGraphImageUrl
-                repositoryTopics(first: 10) {
-                  pageInfo {
-                    startCursor
-                  }
-                  nodes {
-                    topic {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
+  const { data } = await apolloClient.query({
+    query: PINNED_REPOSITORIES,
   })
 
   if (!data) {
