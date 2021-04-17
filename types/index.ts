@@ -16,6 +16,11 @@ interface PageInfo {
   startCursor: string | null
 }
 
+interface  RepositoryOwner {
+  __typename:  RepositoryOwner
+  login: string
+}
+
 interface RepositoryTopics {
   __typename: 'RepositoryTopicConnection'
   pageInfo: PageInfo
@@ -27,6 +32,7 @@ export interface Repository {
   name: string
   url: string
   homepageUrl: string
+  owner: RepositoryOwner
   description: string
   openGraphImageUrl: string
   repositoryTopics: RepositoryTopics

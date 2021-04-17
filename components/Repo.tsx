@@ -41,12 +41,12 @@ const Repo = ({
   const classes = useStyles()
 
   return (
-    <Card className={classes.card} elevation={2}>
+    <Card className={classes.card} elevation={0}>
       <CardContent component='header'>
-        <Typography component='h3' variant='subtitle1' gutterBottom>
+        <Typography component='h4' variant='subtitle1' gutterBottom>
           {language}
         </Typography>
-        <Typography component='h4' variant='h3'>
+        <Typography component='h3' variant='h3'>
           {title.replace(/[-_]/g, ' ')}
         </Typography>
       </CardContent>

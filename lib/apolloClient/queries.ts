@@ -14,6 +14,9 @@ export const PINNED_REPOSITORIES = gql`
             homepageUrl
             description
             openGraphImageUrl
+            owner {
+            login
+          }
             repositoryTopics(first: 10) {
               pageInfo {
                 startCursor
