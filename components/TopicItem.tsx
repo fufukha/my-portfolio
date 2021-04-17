@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core'
+import { PaletteMainColors, StyleProps } from '../types'
 
 const useStyles = makeStyles<Theme, StyleProps>(({ palette }) => ({
   topicContainer: {
@@ -18,12 +19,6 @@ const useStyles = makeStyles<Theme, StyleProps>(({ palette }) => ({
     textTransform: 'lowercase',
   },
 }))
-
-type PaletteMainColors = 'primary' | 'secondary'
-
-type StyleProps = {
-  color: 'primary' | 'secondary'
-}
 
 type TopicProps = {
   topic: string

@@ -2,34 +2,6 @@ import Typography from '@material-ui/core/Typography'
 import { GetStaticProps } from 'next'
 import Meta from '../components/Meta'
 import Repo from '../components/Repo'
-
-interface RepositoryTopic {
-  __typename: 'RepositoryTopic'
-  topic: {
-    name: string
-  }
-}
-
-interface PageInfo {
-  __typename: 'PageInfo'
-  startCursor: string | null
-}
-
-interface RepositoryTopics {
-  __typename: 'RepositoryTopicConnection'
-  pageInfo: PageInfo
-  nodes: RepositoryTopic[]
-}
-
-interface Repository {
-  __typename: 'Repository'
-  name: string
-  url: string
-  homepageUrl: string
-  description: string
-  openGraphImageUrl: string
-  repositoryTopics: RepositoryTopics
-}
 import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
 import { Repository, RepositoryTopic } from '../types'
