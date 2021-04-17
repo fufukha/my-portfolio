@@ -10,32 +10,47 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import TopicList from './TopicList'
 
 const useStyles = makeStyles({
-  img: {
-    width: '100%',
-    height: '200px',
+  card: {
+    marginBottom: '35px',
+    '& > img': {
+      width: '100%',
+      height: '200px',
+    },
   },
 })
 
-const Repo = () => {
+type RepoProps = {
+  language: string
+  title: string
+  imageUrl: string
+  description: string
+  url: string
+  homepageUrl: string
+  topics: string[]
+}
+
+const Repo = ({
+  language,
+  title,
+  imageUrl,
+  description,
+  url,
+  homepageUrl,
+  topics,
+}: RepoProps) => {
   const classes = useStyles()
 
   return (
-    <Card elevation={2}>
-      {/* <CardHeader title='typescript' subheader='Type in Arabic'></CardHeader> */}
+    <Card className={classes.card} elevation={2}>
       <CardContent component='header'>
         <Typography component='h3' variant='subtitle1' gutterBottom>
-          typescript
+          {language}
         </Typography>
         <Typography component='h4' variant='h3'>
-          Type in Arabic
+          {title.replace(/[-_]/g, ' ')}
         </Typography>
       </CardContent>
-      <CardMedia
-        className={classes.img}
-        component='img'
-        src='/images/placeholder.png'
-        title='webpage'
-      />
+      {imageUrl && <CardMedia component='img' src={imageUrl} title='webpage' />}
       <CardContent>
         <Typography
           variant='body1'
@@ -43,17 +58,15 @@ const Repo = () => {
           gutterBottom
           component='p'
         >
-          Cras ac nisl metus. Maecenas eget dui risus. Nullam justo risus,
-          luctus et bibendum vitae, elementum sed eros. Vestibulum tincidunt
-          tortor quam, id volutpat arcu consequat ac.{' '}
+          {description}
         </Typography>
-        <TopicList topicList={['typscript', 'reactJS', 'Apollo Client']} />
+        <TopicList topicList={topics} />
       </CardContent>
       <CardActions>
         <IconButton
           aria-label='Respository website'
           title='Repository website'
-          href='https://google.com'
+          href={homepageUrl}
           component='a'
         >
           <LaunchIcon />
@@ -61,7 +74,7 @@ const Repo = () => {
         <IconButton
           aria-label='Github respository'
           title='GitHub repository'
-          href='https://github.com'
+          href={url}
           component='a'
         >
           <GitHubIcon />
