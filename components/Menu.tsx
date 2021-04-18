@@ -1,40 +1,42 @@
 import { Menu as MuiMenu } from '@material-ui/core'
-import { withStyles, WithStyles, createStyles, makeStyles } from '@material-ui/core/styles';
 import Fade from '@material-ui/core/Fade'
 import IconButton from '@material-ui/core/IconButton'
 import MenuItem from '@material-ui/core/MenuItem'
+import {
+  makeStyles
+} from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
-const useStyles = makeStyles(({ typography}) => ({
-    menu: {
-      paddingLeft: '10px',
-      paddingRight: '10px',
-      '& ul:first-child:before': {
-        content: '"["',
-        display: 'block',
-        height: '30px',
-        width: '100px',
-        paddingLeft: '12px',
-        fontFamily: typography.h2.fontFamily,
-        fontSize: typography.h2.fontSize,
-      },
-      '& ul:last-child:after': {
-        content: '"]"',
-        display: 'block',
-        height: '30px',
-        width: '100px',
-        paddingLeft: '12px',
-        fontFamily: typography.h2.fontFamily,
-        fontSize: typography.h2.fontSize,
-      },
-      '& $h2' : {
-        paddingLeft: '15px',
-        paddingRight: '15px',
-      },
+const useStyles = makeStyles(({ typography }) => ({
+  menu: {
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    '& ul:first-child:before': {
+      content: '"["',
+      display: 'block',
+      height: '30px',
+      width: '100px',
+      paddingLeft: '12px',
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.h2.fontSize,
     },
+    '& ul:last-child:after': {
+      content: '"]"',
+      display: 'block',
+      height: '30px',
+      width: '100px',
+      paddingLeft: '12px',
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.h2.fontSize,
+    },
+    '& $span': {
+      paddingLeft: '15px',
+      paddingRight: '15px',
+    },
+  },
 }))
 
 const Menu = () => {
@@ -59,11 +61,11 @@ const Menu = () => {
 
     return (
       <>
-      <MenuItem key={i} onClick={() => handleClose(path)}>
-        <Typography variant='h2' color={color}>
-          {`${page},`}
-        </Typography>
-      </MenuItem>
+        <MenuItem key={i} onClick={() => handleClose(path)}>
+          <Typography component='span' variant='h2' color={color}>
+            {`${page},`}
+          </Typography>
+        </MenuItem>
       </>
     )
   })
@@ -72,7 +74,9 @@ const Menu = () => {
 
   return (
     <>
-      <Typography component='div' variant='h2'>[</Typography>
+      <Typography component='div' variant='h2'>
+        [
+      </Typography>
       <IconButton
         color='default'
         edge='start'
@@ -96,7 +100,9 @@ const Menu = () => {
       >
         {menuItems}
       </MuiMenu>
-      <Typography component='div' variant='h2'>]</Typography>
+      <Typography component='div' variant='h2'>
+        ]
+      </Typography>
     </>
   )
 }
