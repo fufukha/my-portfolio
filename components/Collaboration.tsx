@@ -65,8 +65,8 @@ const Collaboration = ({ title, homepageUrl, url, topics }: CollaborationProps) 
       </CardContent>
       <CardActions>
         <IconButton
-          aria-label='Respository website'
-          title='Repository website'
+          aria-label='Project\s website'
+          title='Project\s website'
           href={homepageUrl}
           component='a'
         >

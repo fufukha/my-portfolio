@@ -51,7 +51,7 @@ const Repo = ({
           {title.replace(/[-_]/g, ' ')}
         </Typography>
       </CardContent>
-      {imageUrl && <CardMedia component='img' src={imageUrl} title='webpage' />}
+      {imageUrl && <CardMedia component='img' src={imageUrl} title={`Screenshot of ${title}'s web application`} />}
       <CardContent>
         <Typography
           variant='body1'
@@ -65,8 +65,8 @@ const Repo = ({
       </CardContent>
       <CardActions>
         <IconButton
-          aria-label='Respository website'
-          title='Repository website'
+          aria-label='Project\s website'
+          title='Project\s website'
           href={homepageUrl}
           component='a'
         >
