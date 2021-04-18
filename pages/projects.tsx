@@ -1,4 +1,5 @@
 import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import { GetStaticProps } from 'next'
 import Meta from '../components/Meta'
 import Repo from '../components/Repo'
@@ -40,18 +41,18 @@ const getImgUrl = (url: string) => {
 
 const useStyles = makeStyles({
   heading: {
-    marginBottom: '16px'
-  }
+    marginBottom: '16px',
+  },
 })
 
 const projects = ({ repositories }: ProjectProps) => {
   let acc: Acc = {
-    collabsRepos: [], 
-    projsRepos: []
+    collabsRepos: [],
+    projsRepos: [],
   }
 
   const sortedRepos = repositories.reduce((acc, cv) => {
-    if(cv.owner.login !== viewer) {
+    if (cv.owner.login !== viewer) {
       acc.collabsRepos.push(cv)
     } else {
       acc.projsRepos.push(cv)
@@ -62,18 +63,20 @@ const projects = ({ repositories }: ProjectProps) => {
   const { collabsRepos, projsRepos } = sortedRepos
 
   const projects = projsRepos.map((repo, i) => (
-    <Repo
-      key={`repo${i}`}
-      language={getLang(repo.name)}
-      title={repo.name}
-      imageUrl={getImgUrl(repo.openGraphImageUrl)}
-      description={repo.description}
-      topics={getTopics(repo.repositoryTopics.nodes)}
-      url={repo.url}
-      homepageUrl={repo.homepageUrl}
-    />
+    <Grid item>
+      <Repo
+        key={`repo${i}`}
+        language={getLang(repo.name)}
+        title={repo.name}
+        imageUrl={getImgUrl(repo.openGraphImageUrl)}
+        description={repo.description}
+        topics={getTopics(repo.repositoryTopics.nodes)}
+        url={repo.url}
+        homepageUrl={repo.homepageUrl}
+      />
+    </Grid>
   ))
-  
+
   const collaborations = collabsRepos.map((repo, i) => (
     <Collaboration
       key={`repo${i}`}
@@ -98,10 +101,21 @@ const projects = ({ repositories }: ProjectProps) => {
         {collaborations}
       </section>
       <section>
-        <Typography className={classes.heading} variant='h1' component='h2' gutterBottom>
+        <Typography
+          className={classes.heading}
+          variant='h1'
+          component='h2'
+          gutterBottom
+        >
           Projects
         </Typography>
-        {projects}
+        <Grid 
+          container
+          justify='center'
+          sm={12}
+          spacing={6}>
+          {projects}
+      </Grid>
       </section>
     </>
   )

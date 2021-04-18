@@ -20,7 +20,7 @@ type CollaborationProps = {
 
 const useStyles = makeStyles({
   card: {
-    marginBottom: '35px'
+    margin: '0 auto 35px auto'
   }
 })
 

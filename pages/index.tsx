@@ -1,9 +1,11 @@
-import { Button, Grid, makeStyles, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 
 const useStyles = makeStyles(({ palette }) => ({
   section: {
-    height: '100%',
     '& > header': {
       marginBottom: '35px',
     },
@@ -18,10 +20,9 @@ const useStyles = makeStyles(({ palette }) => ({
   article: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flex: 1,
-    marginTop: '35px',
+    '& > p': {
+      marginBottom: '70px',
+    },
     '& p > span': {
       color: palette.primary.main,
       fontWeight: 500,
@@ -37,13 +38,8 @@ export default function Home() {
   const classes = useStyles()
 
   return (
-    <Grid
-      className={classes.section}
-      container
-      component='section'
-      direction='column'
-    >
-      <Grid item component='header'>
+    <Container className={classes.section} maxWidth='md'>
+      <header>
         <Typography
           component='h1'
           variant='h2'
@@ -61,15 +57,8 @@ export default function Home() {
             based in FL, US
           </Typography>
         </div>
-      </Grid>
-      <Grid
-        className={classes.article}
-        item
-        container
-        component='article'
-        direction='row'
-        justify='space-between'
-      >
+      </header>
+      <article className={classes.article}>
         <Typography variant='body1' color='textSecondary'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
           elit vehicula, dapibus eros quis, suscipit diam. Curabitur efficitur
@@ -80,10 +69,17 @@ export default function Home() {
           vulputate sem gravida sed. Nullam erat felis, porta eget ante sed,
           suscipit congue nisl. Nulla a sem mauris.
         </Typography>
-        <Button variant='contained' color='primary' size='medium'>
-          [download resume]
+        <Button
+          component='a'
+          href='../public/documents/resume.pdf'
+          download
+          variant='contained'
+          color='primary'
+          size='medium'
+        >
+          <span aria-hidden='true'>[</span>download resume<span aria-hidden='true'>]</span>
         </Button>
-      </Grid>
-    </Grid>
+      </article>
+    </Container>
   )
 }

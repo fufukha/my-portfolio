@@ -11,7 +11,8 @@ import TopicList from './TopicList'
 
 const useStyles = makeStyles({
   card: {
-    marginBottom: '35px',
+    margin: '0 auto 35px auto',
+    maxWidth: '400px',
     '& > img': {
       width: '100%',
       height: '200px',

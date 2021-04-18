@@ -26,7 +26,7 @@ const useStyles2 = makeStyles((theme: Theme) =>
 function ScrollTop(props: ScrollToTopProps) {
   const { children } = props
   const classes = useStyles2()
-  
+
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 100,
@@ -56,8 +56,8 @@ type LayoutProps = {
 
 const useStyles = makeStyles(({ mixins }) => ({
   container: {
-    padding: '35px 35px 70px 35px',
-    height: `calc(100vh - ${mixins.toolbar.minHeight}px)`,
+    height: `calc(100vh - ${mixins.toolbar.minHeight}px + 35px)`,
+    paddingBottom: '70px',
   },
 }))
 
@@ -69,7 +69,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Meta />
       <Header />
       <Toolbar id='back-to-top-anchor' disableGutters />
-      <Container className={classes.container} component='main'>
+      <Container className={classes.container} maxWidth='md' component='main'>
         {children}
       </Container>
       <ScrollTop>
