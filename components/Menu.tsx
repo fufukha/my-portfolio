@@ -1,4 +1,5 @@
 import { Menu as MuiMenu } from '@material-ui/core'
+import { withStyles, WithStyles, createStyles, makeStyles } from '@material-ui/core/styles';
 import Fade from '@material-ui/core/Fade'
 import IconButton from '@material-ui/core/IconButton'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -6,6 +7,35 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
+
+const useStyles = makeStyles(({ typography}) => ({
+    menu: {
+      paddingLeft: '10px',
+      paddingRight: '10px',
+      '& ul:first-child:before': {
+        content: '"["',
+        display: 'block',
+        height: '30px',
+        width: '100px',
+        paddingLeft: '12px',
+        fontFamily: typography.h2.fontFamily,
+        fontSize: typography.h2.fontSize,
+      },
+      '& ul:last-child:after': {
+        content: '"]"',
+        display: 'block',
+        height: '30px',
+        width: '100px',
+        paddingLeft: '12px',
+        fontFamily: typography.h2.fontFamily,
+        fontSize: typography.h2.fontSize,
+      },
+      '& $h2' : {
+        paddingLeft: '15px',
+        paddingRight: '15px',
+      },
+    },
+}))
 
 const Menu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -23,34 +53,28 @@ const Menu = () => {
     }
   }
 
-  const items = ['[', ...pages, ']']
-
-  const menuItems = items.map((item, i) => {
-    let path: string
-    let onClick: React.MouseEventHandler | undefined
-    let disabled = true
-    let color: 'primary' | 'textPrimary' = 'textPrimary'
-
-    if (i !== 0 || i !== pages.length - 1) {
-      path = item === 'home' ? '/' : `/${item}`
-      onClick = () => handleClose(path)
-      disabled = false
-      color = router.pathname === path ? 'primary' : 'textPrimary'
-    }
+  const menuItems = pages.map((page, i) => {
+    const path = page === 'home' ? '/' : `/${page}`
+    const color = router.pathname === path ? 'primary' : 'textPrimary'
 
     return (
-      <MenuItem key={i} disabled={disabled} onClick={onClick}>
+      <>
+      <MenuItem key={i} onClick={() => handleClose(path)}>
         <Typography variant='h2' color={color}>
-          {item}
+          {`${page},`}
         </Typography>
       </MenuItem>
+      </>
     )
   })
 
+  const classes = useStyles()
+
   return (
-    <div>
+    <>
+      <Typography component='div' variant='h2'>[</Typography>
       <IconButton
-        color='inherit'
+        color='default'
         edge='start'
         aria-label='Open main navigation'
         aria-controls='simple-menu'
@@ -60,6 +84,7 @@ const Menu = () => {
         <MenuIcon />
       </IconButton>
       <MuiMenu
+        className={classes.menu}
         id='fade-menu'
         anchorEl={anchorEl}
         keepMounted
@@ -71,7 +96,8 @@ const Menu = () => {
       >
         {menuItems}
       </MuiMenu>
-    </div>
+      <Typography component='div' variant='h2'>]</Typography>
+    </>
   )
 }
 
