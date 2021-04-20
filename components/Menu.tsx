@@ -32,7 +32,7 @@ const useStyles = makeStyles(({ typography }) => ({
       fontFamily: typography.h2.fontFamily,
       fontSize: typography.h2.fontSize,
     },
-    '& $span': {
+    '& span': {
       paddingLeft: '15px',
       paddingRight: '15px',
     },
@@ -60,13 +60,11 @@ const Menu = () => {
     const color = router.pathname === path ? 'primary' : 'textPrimary'
 
     return (
-      <>
-        <MenuItem key={i} onClick={() => handleClose(path)}>
+        <MenuItem key={`${i}`} onClick={() => handleClose(path)}>
           <Typography component='span' variant='h2' color={color}>
             {`${page},`}
           </Typography>
         </MenuItem>
-      </>
     )
   })
 
