@@ -77,7 +77,7 @@ const projects = ({ repositories }: ProjectProps) => {
 
   const collaborations = collabsRepos.map((repo, i) => (
     <Collaboration
-      key={`repo${i}`}
+      key={i}
       language={getLang(repo.name)}
       title={repo.name}
       imageUrl={getImgUrl(repo.openGraphImageUrl)}
@@ -107,13 +107,9 @@ const projects = ({ repositories }: ProjectProps) => {
         >
           Projects
         </Typography>
-        <Grid 
-          container
-          justify='center'
-          sm={12}
-          spacing={6}>
+        <Grid container justify='center' spacing={6}>
           {projects}
-      </Grid>
+        </Grid>
       </section>
     </>
   )
