@@ -60,11 +60,11 @@ const Menu = () => {
     const color = router.pathname === path ? 'primary' : 'textPrimary'
 
     return (
-        <MenuItem key={`${i}`} onClick={() => handleClose(path)}>
-          <Typography component='span' variant='h2' color={color}>
-            {`${page},`}
-          </Typography>
-        </MenuItem>
+      <MenuItem key={`${i}`} onClick={() => handleClose(path)}>
+        <Typography component='span' variant='h2' color={color}>
+          {`${page},`}
+        </Typography>
+      </MenuItem>
     )
   })
 
@@ -72,9 +72,6 @@ const Menu = () => {
 
   return (
     <>
-      <Typography component='div' variant='h2'>
-        [
-      </Typography>
       <IconButton
         color='default'
         edge='start'
@@ -98,9 +95,6 @@ const Menu = () => {
       >
         {menuItems}
       </MuiMenu>
-      <Typography component='div' variant='h2'>
-        ]
-      </Typography>
     </>
   )
 }
