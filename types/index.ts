@@ -37,3 +37,11 @@ export interface Repository {
   openGraphImageUrl: string
   repositoryTopics: RepositoryTopics
 }
+
+export interface DataVisualization {
+  name: string
+  language: string
+  description: string
+  imageUrl: string
+  topics: string[]
+}

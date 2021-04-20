@@ -25,8 +25,8 @@ type RepoProps = {
   title: string
   imageUrl: string
   description: string
-  url: string
-  homepageUrl: string
+  url?: string
+  homepageUrl?: string
   topics: string[]
 }
 
@@ -74,6 +74,7 @@ const Repo = ({
           <IconButton
             aria-label='Project\s website'
             title='Project\s website'
+            disabled={homepageUrl === undefined}
             href={homepageUrl}
             component='a'
           >
@@ -82,6 +83,7 @@ const Repo = ({
           <IconButton
             aria-label='Github respository'
             title='GitHub repository'
+            disabled={url === undefined}
             href={url}
             component='a'
           >

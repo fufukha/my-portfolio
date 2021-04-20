@@ -1,3 +1,4 @@
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { GetStaticProps } from 'next'
@@ -9,6 +10,7 @@ import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
 import { Repository, RepositoryTopic } from '../types'
 import { viewer } from '../config'
 import { makeStyles } from '@material-ui/core'
+import { dataVisualization } from '../utilis/projectsdata'
 
 type ProjectProps = {
   repositories: Repository[]
@@ -62,18 +64,43 @@ const projects = ({ repositories }: ProjectProps) => {
 
   const { collabsRepos, projsRepos } = sortedRepos
 
-  const projects = projsRepos.map((repo, i) => (
-    <Repo
-      key={i}
-      language={getLang(repo.name)}
-      title={repo.name}
-      imageUrl={getImgUrl(repo.openGraphImageUrl)}
-      description={repo.description}
-      topics={getTopics(repo.repositoryTopics.nodes)}
-      url={repo.url}
-      homepageUrl={repo.homepageUrl}
-    />
-  ))
+  const projects = projsRepos.map((repo, i) => {
+    if (repo.name === 'comments') {
+      return (
+        <React.Fragment key={i}>
+          <Repo
+            language={dataVisualization.language}
+            title={dataVisualization.name}
+            imageUrl={dataVisualization.imageUrl}
+            description={dataVisualization.description}
+            topics={dataVisualization.topics}
+          />
+          <Repo
+            language={getLang(repo.name)}
+            title={repo.name}
+            imageUrl={getImgUrl(repo.openGraphImageUrl)}
+            description={repo.description}
+            topics={getTopics(repo.repositoryTopics.nodes)}
+            url={repo.url}
+            homepageUrl={repo.homepageUrl}
+          />
+        </React.Fragment>
+      )
+    }
+
+    return (
+      <Repo
+        key={i}
+        language={getLang(repo.name)}
+        title={repo.name}
+        imageUrl={getImgUrl(repo.openGraphImageUrl)}
+        description={repo.description}
+        topics={getTopics(repo.repositoryTopics.nodes)}
+        url={repo.url}
+        homepageUrl={repo.homepageUrl}
+      />
+    )
+  })
 
   const collaborations = collabsRepos.map((repo, i) => (
     <Collaboration
