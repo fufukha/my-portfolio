@@ -1,6 +1,7 @@
 import { Theme } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Container from '@material-ui/core/Container'
 import Toolbar from '@material-ui/core/Toolbar'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import makeStyles from '@material-ui/styles/makeStyles'
@@ -39,9 +40,11 @@ const Header = () => {
         elevation={0}
       >
         <CssBaseline />
-        <Toolbar>
-          <Menu />
-        </Toolbar>
+        <Container maxWidth='lg'>
+          <Toolbar>
+            <Menu />
+          </Toolbar>
+        </Container>
       </AppBar>
     </ElevationScroll>
   )

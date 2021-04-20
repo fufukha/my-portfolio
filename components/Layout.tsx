@@ -57,6 +57,7 @@ type LayoutProps = {
 const useStyles = makeStyles(({ mixins }) => ({
   container: {
     height: `calc(100vh - ${mixins.toolbar.minHeight}px + 35px)`,
+    paddingTop: '35px',
     paddingBottom: '70px',
   },
 }))
