@@ -9,6 +9,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import LaunchIcon from '@material-ui/icons/Launch'
 import TopicList from './TopicList'
 import Grid from '@material-ui/core/Grid'
+import ProjectLinks from './ProjectLinks'
 
 const useStyles = makeStyles({
   card: {
@@ -71,24 +72,7 @@ const Repo = ({
           <TopicList topicList={topics} />
         </CardContent>
         <CardActions>
-          <IconButton
-            aria-label='Project\s website'
-            title='Project\s website'
-            disabled={homepageUrl === undefined}
-            href={homepageUrl}
-            component='a'
-          >
-            <LaunchIcon />
-          </IconButton>
-          <IconButton
-            aria-label='Github respository'
-            title='GitHub repository'
-            disabled={url === undefined}
-            href={url}
-            component='a'
-          >
-            <GitHubIcon />
-          </IconButton>
+          <ProjectLinks homepageUrl={homepageUrl} url={url} />
         </CardActions>
       </Card>
     </Grid>
