@@ -63,18 +63,16 @@ const projects = ({ repositories }: ProjectProps) => {
   const { collabsRepos, projsRepos } = sortedRepos
 
   const projects = projsRepos.map((repo, i) => (
-    <Grid item>
-      <Repo
-        key={`repo${i}`}
-        language={getLang(repo.name)}
-        title={repo.name}
-        imageUrl={getImgUrl(repo.openGraphImageUrl)}
-        description={repo.description}
-        topics={getTopics(repo.repositoryTopics.nodes)}
-        url={repo.url}
-        homepageUrl={repo.homepageUrl}
-      />
-    </Grid>
+    <Repo
+      key={i}
+      language={getLang(repo.name)}
+      title={repo.name}
+      imageUrl={getImgUrl(repo.openGraphImageUrl)}
+      description={repo.description}
+      topics={getTopics(repo.repositoryTopics.nodes)}
+      url={repo.url}
+      homepageUrl={repo.homepageUrl}
+    />
   ))
 
   const collaborations = collabsRepos.map((repo, i) => (
