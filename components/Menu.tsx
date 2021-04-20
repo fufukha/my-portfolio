@@ -42,7 +42,7 @@ const useStyles = makeStyles(({ typography }) => ({
 const Menu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const router = useRouter()
-  const pages = ['home', 'projects']
+  const pages = ['home', 'projects', 'journey']
 
   const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(e.currentTarget)
