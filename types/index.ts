@@ -1,3 +1,5 @@
+import React from "react"
+
 export type PaletteMainColors = 'primary' | 'secondary'
 
 export type StyleProps = {
@@ -44,4 +46,12 @@ export interface DataVisualization {
   description: string
   imageUrl: string
   topics: string[]
+}
+
+export interface StepData {
+  label: string | JSX.Element
+  content: string | JSX.Element
+  arabicContent?: string
+  url?: string
+  homepageUrl?: string
 }
