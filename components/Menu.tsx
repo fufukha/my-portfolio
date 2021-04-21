@@ -13,7 +13,7 @@ import Mail from '@material-ui/icons/Mail'
 import MenuIcon from '@material-ui/icons/Menu'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
-import { PersonalLinks } from '../types'
+import { MenuLink, PersonalLinks } from '../types'
 
 const useStyles = makeStyles<Theme>(({ typography }) => ({
   listContainer: {
@@ -87,9 +87,9 @@ const Menu = () => {
   const router = useRouter()
   const pages = ['home', 'projects', 'journey']
   const personalLinks: PersonalLinks = [
-    { name: 'github', url: 'https://github.com/fufukha' },
-    { name: 'leetcode', url: 'https://leetcode.com/fufukha/' },
-    { name: 'email', url: 'mailto: kamile.mkb@gmail.com' },
+    { name: MenuLink.NAME_GITHUB, href: MenuLink.HREF_GITHUB },
+    { name: MenuLink.NAME_LEETCODE, href: MenuLink.HREF_LEETCODE },
+    { name: MenuLink.NAME_EMAIL, href: MenuLink.HREF_EMAIL },
   ]
   const classes = useStyles()
 
@@ -148,13 +148,17 @@ const Menu = () => {
             className={classes.listItem}
             button
             component='a'
-            href={link.url}
+            href={link.href}
             key={i}
           >
             <ListItemIcon className={classes.listItemIcon}>
-              {link.name === 'github' && <GitHub fontSize='small' />}
-              {link.name === 'leetcode' && <Code fontSize='small' />}
-              {link.name === 'email' && <Mail fontSize='small' />}
+              {link.name === MenuLink.NAME_GITHUB && (
+                <GitHub fontSize='small' />
+              )}
+              {link.name === MenuLink.NAME_LEETCODE && (
+                <Code fontSize='small' />
+              )}
+              {link.name === MenuLink.NAME_EMAIL && <Mail fontSize='small' />}
             </ListItemIcon>
             <Typography component='span'>{`${link.name},`}</Typography>
           </ListItem>
