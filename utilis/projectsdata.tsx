@@ -114,12 +114,11 @@ export const steps: StepData[] = [
         <span>
           <FavoriteIcon id='#heart' fontSize='small' />
         </span>{' '}
-        TypeScript! No more memorizing variable names and getting errors because
-        of typoes.
+        TypeScript! No more typos and passing the wrong arguments! of typoes.
       </>
     ),
     url: 'https://github.com/fufukha/type-in-arabic',
-    homepageUrl: 'https://fufukha.github.io/type-in-arabic/'
+    homepageUrl: 'https://fufukha.github.io/type-in-arabic/',
   },
   {
     label: 'Future',
