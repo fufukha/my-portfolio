@@ -118,7 +118,7 @@ const projects = ({ repositories }: ProjectProps) => {
 
   return (
     <>
-      <Meta title={'projects'} />
+      <Meta title={'My Work'} />
       <section>
         <Typography className={classes.heading} variant='h1' component='h1'>
           Experience
