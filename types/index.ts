@@ -1,5 +1,3 @@
-import React from "react"
-
 export type PaletteMainColors = 'primary' | 'secondary'
 
 export type StyleProps = {
@@ -18,8 +16,8 @@ interface PageInfo {
   startCursor: string | null
 }
 
-interface  RepositoryOwner {
-  __typename:  RepositoryOwner
+interface RepositoryOwner {
+  __typename: RepositoryOwner
   login: string
 }
 
@@ -55,3 +53,20 @@ export interface StepData {
   url?: string
   homepageUrl?: string
 }
+
+interface GithubLink {
+  name: 'github'
+  url: 'https://github.com/fufukha'
+}
+
+interface LeetcodeLink {
+  name: 'leetcode'
+  url: 'https://leetcode.com/fufukha/'
+}
+
+interface EmailLink {
+  name: 'email'
+  url: 'mailto: kamile.mkb@gmail.com'
+}
+
+export type PersonalLinks = [GithubLink, LeetcodeLink, EmailLink]

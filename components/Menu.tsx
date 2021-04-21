@@ -1,100 +1,180 @@
-import { Menu as MuiMenu } from '@material-ui/core'
-import Fade from '@material-ui/core/Fade'
-import IconButton from '@material-ui/core/IconButton'
-import MenuItem from '@material-ui/core/MenuItem'
-import {
-  makeStyles
-} from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import { Theme } from '@material-ui/core/styles'
+import makeStyles from '@material-ui/core/styles/makeStyles'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Typography from '@material-ui/core/Typography'
+import Code from '@material-ui/icons/Code'
+import GitHub from '@material-ui/icons/GitHub'
+import Mail from '@material-ui/icons/Mail'
 import MenuIcon from '@material-ui/icons/Menu'
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+import { useState } from 'react'
+import { PersonalLinks } from '../types'
 
-const useStyles = makeStyles(({ typography }) => ({
-  menu: {
-    paddingLeft: '10px',
-    paddingRight: '10px',
-    '& ul:first-child:before': {
+const useStyles = makeStyles<Theme>(({ typography }) => ({
+  listContainer: {
+    width: 250,
+  },
+  pathList: {
+    padding: '20px',
+    '&:before': {
       content: '"["',
       display: 'block',
       height: '30px',
       width: '100px',
       paddingLeft: '12px',
       fontFamily: typography.h2.fontFamily,
-      fontSize: typography.h2.fontSize,
+      fontSize: typography.body1.fontSize,
     },
-    '& ul:last-child:after': {
+    '&:after': {
       content: '"]"',
       display: 'block',
       height: '30px',
       width: '100px',
       paddingLeft: '12px',
       fontFamily: typography.h2.fontFamily,
-      fontSize: typography.h2.fontSize,
+      fontSize: typography.body1.fontSize,
     },
-    '& span': {
-      paddingLeft: '15px',
-      paddingRight: '15px',
+  },
+  personalList: {
+    padding: '35px 16px',
+    '&:before': {
+      content: '"{"',
+      display: 'block',
+      height: '30px',
+      width: '100px',
+      paddingLeft: '12px',
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.body1.fontSize,
+    },
+    '&:after': {
+      content: '"}"',
+      display: 'block',
+      height: '30px',
+      width: '100px',
+      paddingLeft: '12px',
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.body1.fontSize,
+    },
+  },
+  listItem: {
+    paddingLeft: '40px',
+    '& >  span': {
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.body1.fontSize,
+    },
+  },
+  listItemIcon: {
+    minWidth: '40px',
+    '&:after': {
+      content: '":"',
+      display: 'inline-block',
+      height: '10px',
+      width: '10px',
+      paddingLeft: '3px',
+      fontFamily: typography.h2.fontFamily,
+      fontSize: typography.body1.fontSize,
     },
   },
 }))
 
 const Menu = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const router = useRouter()
   const pages = ['home', 'projects', 'journey']
-
-  const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(e.currentTarget)
-  }
-
-  const handleClose = (path?: string) => {
-    setAnchorEl(null)
-    if (path) {
-      router.push(path)
-    }
-  }
-
-  const menuItems = pages.map((page, i) => {
-    const path = page === 'home' ? '/' : `/${page}`
-    const color = router.pathname === path ? 'primary' : 'textPrimary'
-
-    return (
-      <MenuItem key={`${i}`} onClick={() => handleClose(path)}>
-        <Typography component='span' variant='h2' color={color}>
-          {`${page},`}
-        </Typography>
-      </MenuItem>
-    )
-  })
-
+  const personalLinks: PersonalLinks = [
+    { name: 'github', url: 'https://github.com/fufukha' },
+    { name: 'leetcode', url: 'https://leetcode.com/fufukha/' },
+    { name: 'email', url: 'mailto: kamile.mkb@gmail.com' },
+  ]
   const classes = useStyles()
+
+  const handlePathClick = (path: string) => {
+    if (path) router.push(path)
+  }
+
+  const toggleDrawer = (isOpen: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return
+    }
+
+    setIsOpen(isOpen)
+  }
+
+  const list = () => (
+    <div
+      className={classes.listContainer}
+      role='presentation'
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List className={classes.pathList} component='nav'>
+        {pages.map((page: string, i: number) => {
+          const path = page === 'home' ? '/' : `/${page}`
+          const color = router.pathname === path ? 'primary' : 'textPrimary'
+
+          return (
+            <ListItem
+              className={classes.listItem}
+              button
+              component='a'
+              selected={page === router.pathname}
+              onClick={() => handlePathClick(path)}
+              key={i}
+            >
+              <Typography
+                component='span'
+                color={color}
+              >{`${page},`}</Typography>
+            </ListItem>
+          )
+        })}
+      </List>
+      <Divider />
+      <List className={classes.personalList} title='Personal links'>
+        {personalLinks.map((link, i) => (
+          <ListItem
+            className={classes.listItem}
+            button
+            component='a'
+            href={link.url}
+            key={i}
+          >
+            <ListItemIcon className={classes.listItemIcon}>
+              {link.name === 'github' && <GitHub fontSize='small' />}
+              {link.name === 'leetcode' && <Code fontSize='small' />}
+              {link.name === 'email' && <Mail fontSize='small' />}
+            </ListItemIcon>
+            <Typography component='span'>{`${link.name},`}</Typography>
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  )
 
   return (
     <>
-      <IconButton
-        color='default'
-        edge='start'
-        aria-label='Open main navigation'
-        aria-controls='simple-menu'
-        aria-haspopup='true'
-        onClick={handleOpen}
-      >
+      <Button onClick={toggleDrawer(true)}>
         <MenuIcon />
-      </IconButton>
-      <MuiMenu
-        className={classes.menu}
-        id='fade-menu'
-        anchorEl={anchorEl}
-        keepMounted
-        TransitionComponent={Fade}
-        elevation={1}
-        open={Boolean(anchorEl)}
-        onClose={() => handleClose()}
-        onClick={() => handleClose()}
+      </Button>
+      <SwipeableDrawer
+        open={isOpen}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
       >
-        {menuItems}
-      </MuiMenu>
+        {list()}
+      </SwipeableDrawer>
     </>
   )
 }
