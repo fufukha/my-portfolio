@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { CssBaseline } from '@material-ui/core'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/styles'
 import Layout from '../components/Layout'
-import theme from '../theme'
+import { darkTheme } from '../theme'
 import { AppProps } from 'next/app'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -15,7 +15,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Layout>
         <Component {...pageProps} />

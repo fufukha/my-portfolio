@@ -13,11 +13,11 @@ type ScrollToTopProps = {
   children: React.ReactElement
 }
 
-const useStyles2 = makeStyles((theme: Theme) =>
+const useStyles2 = makeStyles(() =>
   createStyles({
     root: {
       position: 'fixed',
-      bottom: theme.spacing(2),
+      bottom: '8%',
       right: '8%',
     },
   })

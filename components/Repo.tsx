@@ -12,8 +12,10 @@ const useStyles = makeStyles({
   card: {
     maxWidth: '400px',
     '& > img': {
-      width: '100%',
+      width: '90%',
       height: '200px',
+      margin: '0 auto',
+      opacity: '0.8',
     },
   },
 })
@@ -41,7 +43,11 @@ const Repo = ({
 
   return (
     <Grid item>
-      <Card className={classes.card} elevation={0}>
+      <Card
+        id={title.replace(/[-_]/g, '')}
+        className={classes.card}
+        elevation={0}
+      >
         <CardContent component='header'>
           <Typography component='h4' variant='subtitle1' gutterBottom>
             {language}

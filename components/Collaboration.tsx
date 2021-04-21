@@ -1,4 +1,3 @@
-import classes from '*.module.css'
 import { makeStyles } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -20,14 +19,27 @@ type CollaborationProps = {
 
 const useStyles = makeStyles({
   card: {
-    margin: '0 auto 35px auto'
-  }
+    margin: '0 auto 35px auto',
+  },
 })
 
-const Collaboration = ({ title, homepageUrl, url, topics }: CollaborationProps) => {
-  const collabTopics = title  === 'xstream' 
-    ? ['react', 'react-redux', 'webpack', 'web audio', 'responsive-design', 'firebase']
-    : topics
+const Collaboration = ({
+  title,
+  homepageUrl,
+  url,
+  topics,
+}: CollaborationProps) => {
+  const collabTopics =
+    title === 'xstream'
+      ? [
+          'react',
+          'react-redux',
+          'webpack',
+          'web audio',
+          'responsive-design',
+          'firebase',
+        ]
+      : topics
 
   const classes = useStyles()
 
@@ -44,21 +56,23 @@ const Collaboration = ({ title, homepageUrl, url, topics }: CollaborationProps) 
         )}
         {title === 'xstream' && (
           <>
-          <Typography component='p' variant='body1'>
-            {'• Implemented new features independently or paired with senior developer'}
-          </Typography>
-          <Typography component='p' variant='body1'>
-            {'• Brainstormed and designed new features'}
-          </Typography>
-          <Typography component='p' variant='body1'>
-            {'• Created mock-ups using Figma and Sketchpad'}
-          </Typography>
-          <Typography component='p' variant='body1'>
-            {'• Delivered a responsive application'}
-          </Typography>
-          <Typography component='p' variant='body1'>
-            {'• Researched new technologies to provide technical insight'}
-          </Typography>
+            <Typography component='p' color='textSecondary' variant='body1'>
+              {
+                '• Implemented new features independently or paired with senior developer'
+              }
+            </Typography>
+            <Typography component='p' color='textSecondary' variant='body1'>
+              {'• Brainstormed and designed new features'}
+            </Typography>
+            <Typography component='p' color='textSecondary' variant='body1'>
+              {'• Created mock-ups using Figma and Sketchpad'}
+            </Typography>
+            <Typography component='p' color='textSecondary' variant='body1'>
+              {'• Delivered a responsive application'}
+            </Typography>
+            <Typography component='p' color='textSecondary' variant='body1'>
+              {'• Researched new technologies to provide technical insight'}
+            </Typography>
           </>
         )}
         <TopicList topicList={collabTopics} />
