@@ -1,6 +1,5 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
 import { GetStaticProps } from 'next'
 import Meta from '../components/Meta'
 import Repo from '../components/Repo'
@@ -11,6 +10,7 @@ import { Repository, RepositoryTopic } from '../types'
 import { viewer } from '../config'
 import { makeStyles } from '@material-ui/core'
 import { dataVisualization } from '../utilis/projectsdata'
+import GridWrap from '../components/GridWrap'
 
 type ProjectProps = {
   repositories: Repository[]
@@ -134,9 +134,9 @@ const projects = ({ repositories }: ProjectProps) => {
         >
           Projects
         </Typography>
-        <Grid container justify='center' spacing={6}>
+        <GridWrap>
           {projects}
-        </Grid>
+        </GridWrap>
       </section>
     </>
   )
