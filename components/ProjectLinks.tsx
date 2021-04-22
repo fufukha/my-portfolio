@@ -1,6 +1,5 @@
 import IconButton from '@material-ui/core/IconButton'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import LaunchIcon from '@material-ui/icons/Launch'
+import { GitHub as GitHubIcon, Launch as LaunchIcon } from '@material-ui/icons'
 
 interface ProjectLinksProps {
   homepageUrl?: string

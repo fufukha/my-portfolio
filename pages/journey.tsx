@@ -1,9 +1,7 @@
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles, Paper, Typography } from '@material-ui/core'
+import Meta from '../components/Meta'
 import VerticalStepper from '../components/VerticalStepper'
 import { steps } from '../utilis/projectsdata'
-import makeStyles from '@material-ui/core/styles/makeStyles'
-import Meta from '../components/Meta'
 
 const useStyles = makeStyles({
   heading: {

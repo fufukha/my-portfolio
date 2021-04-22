@@ -1,8 +1,5 @@
-import { makeStyles } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import { Button, Container, makeStyles, Typography } from '@material-ui/core'
+import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 
 const useStyles = makeStyles(({ palette }) => ({
   section: {
@@ -77,7 +74,8 @@ export default function Home() {
           color='primary'
           size='medium'
         >
-          <span aria-hidden='true'>[</span>download resume<span aria-hidden='true'>]</span>
+          <span aria-hidden='true'>[</span>download resume
+          <span aria-hidden='true'>]</span>
         </Button>
       </article>
     </Container>

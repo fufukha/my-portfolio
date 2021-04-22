@@ -1,16 +1,15 @@
-import Button from '@material-ui/core/Button'
-import Divider from '@material-ui/core/Divider'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import { Theme } from '@material-ui/core/styles'
-import makeStyles from '@material-ui/core/styles/makeStyles'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Typography from '@material-ui/core/Typography'
-import Code from '@material-ui/icons/Code'
-import GitHub from '@material-ui/icons/GitHub'
-import Mail from '@material-ui/icons/Mail'
-import MenuIcon from '@material-ui/icons/Menu'
+import {
+  Button,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  makeStyles,
+  SwipeableDrawer,
+  Theme,
+  Typography,
+} from '@material-ui/core'
+import { Code, GitHub, Mail, Menu as MenuIcon } from '@material-ui/icons'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import { MenuLink, PersonalLinks } from '../types'

@@ -1,9 +1,12 @@
-import Container from '@material-ui/core/Container'
-import Fab from '@material-ui/core/Fab'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import Toolbar from '@material-ui/core/Toolbar'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger'
-import Zoom from '@material-ui/core/Zoom'
+import {
+  Container,
+  createStyles,
+  Fab,
+  makeStyles,
+  Toolbar,
+  useScrollTrigger,
+  Zoom
+} from '@material-ui/core'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import React from 'react'
 import Header from './Header'

@@ -1,11 +1,12 @@
-import { makeStyles } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import LaunchIcon from '@material-ui/icons/Launch'
+import {
+  Card,
+  CardActions,
+  CardContent,
+  IconButton,
+  makeStyles,
+  Typography,
+} from '@material-ui/core'
+import { GitHub as GitHubIcon, Launch as LaunchIcon } from '@material-ui/icons/'
 import TopicList from './TopicList'
 
 type CollaborationProps = {

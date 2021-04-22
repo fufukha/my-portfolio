@@ -1,12 +1,14 @@
-import { makeStyles } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
-import TopicList from './TopicList'
-import ProjectLinks from './ProjectLinks'
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  makeStyles,
+  Typography,
+} from '@material-ui/core'
 import clsx from 'clsx'
+import ProjectLinks from './ProjectLinks'
+import TopicList from './TopicList'
 
 const useStyles = makeStyles({
   card: {

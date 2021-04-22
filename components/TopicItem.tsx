@@ -1,5 +1,4 @@
 import { makeStyles, Theme } from '@material-ui/core'
-import { PaletteMainColors } from '../types'
 import grey from '@material-ui/core/colors/grey'
 
 const useStyles = makeStyles<Theme>(({ palette }) => ({

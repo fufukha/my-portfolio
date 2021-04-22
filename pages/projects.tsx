@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles, Typography } from '@material-ui/core'
 import { GetStaticProps } from 'next'
+import React, { useState } from 'react'
+import Collaboration from '../components/Collaboration'
+import GridWrap from '../components/GridWrap'
 import Meta from '../components/Meta'
 import Repo from '../components/Repo'
-import Collaboration from '../components/Collaboration'
+import { viewer } from '../config'
 import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
 import { Repository, RepositoryTopic } from '../types'
-import { viewer } from '../config'
-import { makeStyles } from '@material-ui/core'
 import { dataVisualization } from '../utilis/projectsdata'
-import GridWrap from '../components/GridWrap'
 
 type ProjectProps = {
   repositories: Repository[]
@@ -145,9 +144,7 @@ const projects = ({ repositories }: ProjectProps) => {
         >
           Projects
         </Typography>
-        <GridWrap>
-          {projects}
-        </GridWrap>
+        <GridWrap>{projects}</GridWrap>
       </section>
     </>
   )

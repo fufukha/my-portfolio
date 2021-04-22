@@ -1,5 +1,4 @@
-import makeStyles from '@material-ui/core/styles/makeStyles'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles, Typography } from '@material-ui/core'
 import TopicItem from './TopicItem'
 
 const useStyles = makeStyles({
@@ -14,7 +13,7 @@ type TopicListProps = {
 
 const TopicList = ({ topicList }: TopicListProps) => {
   const topics = topicList.map((topic, i) => (
-    <TopicItem key={i} color='primary' topic={topic} />
+    <TopicItem key={i} topic={topic} />
   ))
 
   const classes = useStyles()
