@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { GetStaticProps } from 'next'
 import Meta from '../components/Meta'
@@ -48,6 +48,8 @@ const useStyles = makeStyles({
 })
 
 const projects = ({ repositories }: ProjectProps) => {
+  const [hoveredIndex, setHoveredIndex] = useState<null | number>(null)
+
   let acc: Acc = {
     collabsRepos: [],
     projsRepos: [],
@@ -74,6 +76,9 @@ const projects = ({ repositories }: ProjectProps) => {
             imageUrl={dataVisualization.imageUrl}
             description={dataVisualization.description}
             topics={dataVisualization.topics}
+            isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
+            onMouseEnter={() => setHoveredIndex(i)}
+            onMouseLeave={() => setHoveredIndex(null)}
           />
           <Repo
             language={getLang(repo.name)}
@@ -83,6 +88,9 @@ const projects = ({ repositories }: ProjectProps) => {
             topics={getTopics(repo.repositoryTopics.nodes)}
             url={repo.url}
             homepageUrl={repo.homepageUrl}
+            isDimmed={hoveredIndex === null ? false : i + 0.5 !== hoveredIndex}
+            onMouseEnter={() => setHoveredIndex(i + 0.5)}
+            onMouseLeave={() => setHoveredIndex(null)}
           />
         </React.Fragment>
       )
@@ -98,6 +106,9 @@ const projects = ({ repositories }: ProjectProps) => {
         topics={getTopics(repo.repositoryTopics.nodes)}
         url={repo.url}
         homepageUrl={repo.homepageUrl}
+        isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
+        onMouseEnter={() => setHoveredIndex(i)}
+        onMouseLeave={() => setHoveredIndex(null)}
       />
     )
   })

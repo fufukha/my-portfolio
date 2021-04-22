@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import TopicList from './TopicList'
 import ProjectLinks from './ProjectLinks'
+import clsx from 'clsx'
 
 const useStyles = makeStyles({
   card: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
       opacity: '0.8',
     },
   },
+  dimmed: {
+    opacity: 0.6,
+  },
 })
 
 type RepoProps = {
@@ -27,6 +31,9 @@ type RepoProps = {
   url?: string
   homepageUrl?: string
   topics: string[]
+  isDimmed: boolean
+  onMouseEnter: () => void
+  onMouseLeave: () => void
 }
 
 const Repo = ({
@@ -37,14 +44,19 @@ const Repo = ({
   url,
   homepageUrl,
   topics,
+  isDimmed,
+  onMouseEnter,
+  onMouseLeave,
 }: RepoProps) => {
   const classes = useStyles()
 
   return (
-        className={classes.card}
     <Card
       id={title.replace(/[-_]/g, '')}
+      className={clsx(classes.card, { [classes.dimmed]: isDimmed === true })}
       elevation={0}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <CardContent component='header'>
         <Typography component='h4' variant='subtitle1' gutterBottom>
