@@ -10,7 +10,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { StepData } from '../types'
 import ProjectLinks from './ProjectLinks'
 
@@ -51,6 +51,13 @@ interface VerticalStepperProps {
 
 const VerticalStepper = ({ steps }: VerticalStepperProps) => {
   const [activeStep, setActiveStep] = React.useState(0)
+  const stepLabelRef = useRef<null | HTMLSpanElement>(null)
+
+  useEffect(() => {
+    if(stepLabelRef.current) {
+      stepLabelRef.current.scrollIntoView({behavior: "smooth", block: 'center'})
+    }
+  })
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -71,7 +78,7 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
       <Stepper activeStep={activeStep} orientation='vertical'>
         {steps.map((step, index) => (
           <Step key={index}>
-            <StepLabel>{step.label}</StepLabel>
+            <StepLabel ref={stepLabelRef}>{step.label}</StepLabel>
             <StepContent>
               <Typography className={classes.text}>{step.content}</Typography>
               {step.arabicContent && (
