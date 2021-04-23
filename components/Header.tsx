@@ -47,6 +47,8 @@ const useStyles = makeStyles<Theme>(({ palette }) => ({
       },
     },
   },
+  container: {
+    display: 'flex',
   },
 }))
 
@@ -61,13 +63,15 @@ const Header = () => {
         position='fixed'
         elevation={0}
       >
-        <CssBaseline />
-        <Container maxWidth='lg'>
-          <Toolbar>
+        <Toolbar disableGutters>
+          <Container className={classes.container} maxWidth='md'>
+            <a href='#main' tabIndex={0}>
+              <Typography variant='srOnly'>Skip to Main</Typography>
+            </a>
             <Menu />
-          </Toolbar>
-        </Container>
             <Tabs />
+          </Container>
+        </Toolbar>
       </AppBar>
     </ElevationScroll>
   )

@@ -1,4 +1,4 @@
-import { Button, Container, makeStyles, Typography } from '@material-ui/core'
+import { Box, Button, makeStyles, Typography } from '@material-ui/core'
 import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 
 const useStyles = makeStyles(({ palette }) => ({
@@ -35,7 +35,7 @@ export default function Home() {
   const classes = useStyles()
 
   return (
-    <Container className={classes.section} maxWidth='md'>
+    <Box component='section' className={classes.section}>
       <header>
         <Typography
           component='h1'
@@ -73,11 +73,12 @@ export default function Home() {
           variant='contained'
           color='primary'
           size='medium'
+          tabIndex={5}
         >
           <span aria-hidden='true'>[</span>download resume
           <span aria-hidden='true'>]</span>
         </Button>
       </article>
-    </Container>
+    </Box>
   )
 }

@@ -1,6 +1,6 @@
 import {
-  Button,
   Divider,
+  IconButton,
   List,
   ListItem,
   ListItemIcon,
@@ -11,8 +11,9 @@ import {
 } from '@material-ui/core'
 import { Code, GitHub, Mail, Menu as MenuIcon } from '@material-ui/icons'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 import { useState } from 'react'
-import { MenuLink, PersonalLinks } from '../types'
+import { MenuLink, Paths, PersonalLinks } from '../types'
 
 const useStyles = makeStyles<Theme>(({ typography }) => ({
   listContainer: {
@@ -79,6 +80,10 @@ const useStyles = makeStyles<Theme>(({ typography }) => ({
       fontSize: typography.body1.fontSize,
     },
   },
+  menuIcon: {
+    position: 'relative',
+    left: '-16px',
+  },
 }))
 
 const Menu = () => {
@@ -91,10 +96,6 @@ const Menu = () => {
     { name: MenuLink.NAME_EMAIL, href: MenuLink.HREF_EMAIL },
   ]
   const classes = useStyles()
-
-  const handlePathClick = (path: string) => {
-    if (path) router.push(path)
-  }
 
   const toggleDrawer = (isOpen: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent
@@ -118,24 +119,25 @@ const Menu = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List className={classes.pathList} component='nav'>
+      <List className={classes.pathList} component='ul'>
         {pages.map((page: string, i: number) => {
-          const path = page === 'home' ? '/' : `/${page}`
+          const path = page === 'home' ? Paths.HOME : `/${page}`
           const color = router.pathname === path ? 'primary' : 'textPrimary'
 
           return (
             <ListItem
               className={classes.listItem}
               button
-              component='a'
+              component='li'
               selected={page === router.pathname}
-              onClick={() => handlePathClick(path)}
               key={i}
             >
-              <Typography
-                component='span'
-                color={color}
-              >{`${page},`}</Typography>
+              <Link href={path}>
+                <Typography
+                  component='a'
+                  color={color}
+                >{`${page},`}</Typography>
+              </Link>
             </ListItem>
           )
         })}
@@ -168,9 +170,14 @@ const Menu = () => {
 
   return (
     <>
-      <Button onClick={toggleDrawer(true)}>
+      <IconButton
+        className={classes.menuIcon}
+        tabIndex={1}
+        edge='end'
+        onClick={toggleDrawer(true)}
+      >
         <MenuIcon />
-      </Button>
+      </IconButton>
       <SwipeableDrawer
         open={isOpen}
         onClose={toggleDrawer(false)}

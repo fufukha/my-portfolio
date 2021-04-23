@@ -5,7 +5,7 @@ import {
   makeStyles,
   Toolbar,
   useScrollTrigger,
-  Zoom
+  Zoom,
 } from '@material-ui/core'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import React from 'react'
@@ -58,7 +58,7 @@ type LayoutProps = {
 }
 
 const useStyles = makeStyles(({ mixins }) => ({
-  container: {
+  main: {
     height: `calc(100vh - ${mixins.toolbar.minHeight}px + 35px)`,
     paddingTop: '35px',
     paddingBottom: '70px',
@@ -71,16 +71,16 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Meta />
-      <Header />
-      <Toolbar id='back-to-top-anchor' disableGutters />
-      <Container className={classes.container} maxWidth='md' component='main'>
-        {children}
+      <Container maxWidth='md'>
+        <Header />
+        <Toolbar id='back-to-top-anchor' disableGutters />
+        <main className={classes.main}>{children}</main>
+        <ScrollTop>
+          <Fab color='primary' size='small' aria-label='scroll back to top'>
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollTop>
       </Container>
-      <ScrollTop>
-        <Fab color='primary' size='small' aria-label='scroll back to top'>
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
     </>
   )
 }
