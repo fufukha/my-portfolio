@@ -53,14 +53,11 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
   const [activeStep, setActiveStep] = React.useState(0)
   const stepLabelRef = useRef<null | HTMLSpanElement>(null)
 
-  useEffect(() => {
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1)
     if(stepLabelRef.current) {
       stepLabelRef.current.scrollIntoView({behavior: "smooth", block: 'center'})
     }
-  })
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
   }
 
   const handleBack = () => {
