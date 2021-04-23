@@ -1,14 +1,15 @@
 import {
   AppBar,
   Container,
-  CssBaseline,
   makeStyles,
   Theme,
   Toolbar,
-  useScrollTrigger
+  Typography,
+  useScrollTrigger,
 } from '@material-ui/core'
 import React from 'react'
 import Menu from './Menu'
+import Tabs from './Tabs'
 
 interface ElevationScrollProps {
   children: React.ReactElement
@@ -28,11 +29,30 @@ function ElevationScroll({ children }: ElevationScrollProps) {
 const useStyles = makeStyles<Theme>(({ palette }) => ({
   appBar: {
     background: palette.background.default,
+    '& a': {
+      textDecoration: 'none',
+    },
+    '&  nav': {
+      margin: '0 auto',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '12px',
+      cursor: 'pointer',
+      '& span': {
+        width: '30px',
+        height: '1px',
+        margin: '0 10px',
+        borderTop: `1px solid ${palette.text.secondary}`,
+      },
+    },
+  },
   },
 }))
 
 const Header = () => {
   const classes = useStyles()
+
   return (
     <ElevationScroll>
       <AppBar
@@ -47,6 +67,7 @@ const Header = () => {
             <Menu />
           </Toolbar>
         </Container>
+            <Tabs />
       </AppBar>
     </ElevationScroll>
   )

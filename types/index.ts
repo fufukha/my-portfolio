@@ -79,3 +79,9 @@ interface EmailLink {
 }
 
 export type PersonalLinks = [GithubLink, LeetcodeLink, EmailLink]
+
+export enum Paths {
+  HOME = '/',
+  PROJECTS = '/projects',
+  JOURNEY = '/journey',
+}
