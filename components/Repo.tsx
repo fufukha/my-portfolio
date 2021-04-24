@@ -36,6 +36,7 @@ type RepoProps = {
   isDimmed: boolean
   onMouseEnter: () => void
   onMouseLeave: () => void
+  index: number
 }
 
 const Repo = ({
@@ -49,6 +50,7 @@ const Repo = ({
   isDimmed,
   onMouseEnter,
   onMouseLeave,
+  index,
 }: RepoProps) => {
   const classes = useStyles()
 
@@ -57,8 +59,6 @@ const Repo = ({
       id={title.replace(/[-_]/g, '')}
       className={clsx(classes.card, { [classes.dimmed]: isDimmed === true })}
       elevation={0}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       <CardContent component='header'>
         <Typography component='h4' variant='subtitle1' gutterBottom>

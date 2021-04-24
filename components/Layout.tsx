@@ -11,6 +11,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import React from 'react'
 import Header from './Header'
 import Meta from './Meta'
+import { motion } from 'framer-motion'
 
 type ScrollToTopProps = {
   children: React.ReactElement
@@ -74,7 +75,14 @@ const Layout = ({ children }: LayoutProps) => {
       <Container maxWidth='md'>
         <Header />
         <Toolbar id='back-to-top-anchor' disableGutters />
-        <main className={classes.main}>{children}</main>
+        <motion.main
+          className={classes.main}
+          exit={{ opacity: 0 }}
+          initial='initial'
+          animate='animate'
+        >
+          {children}
+        </motion.main>
         <ScrollTop>
           <Fab color='primary' size='small' aria-label='scroll back to top'>
             <KeyboardArrowUpIcon />

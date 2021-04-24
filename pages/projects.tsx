@@ -1,6 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core'
+import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
+import { fadeInUp, stagger } from '../animation'
 import Collaboration from '../components/Collaboration'
 import GridWrap from '../components/GridWrap'
 import Meta from '../components/Meta'
@@ -76,8 +78,7 @@ const projects = ({ repositories }: ProjectProps) => {
             description={dataVisualization.description}
             topics={dataVisualization.topics}
             isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
-            onMouseEnter={() => setHoveredIndex(i)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            index={i}
           />
           <Repo
             language={getLang(repo.name)}
@@ -87,9 +88,8 @@ const projects = ({ repositories }: ProjectProps) => {
             topics={getTopics(repo.repositoryTopics.nodes)}
             url={repo.url}
             homepageUrl={repo.homepageUrl}
-            isDimmed={hoveredIndex === null ? false : i + 0.5 !== hoveredIndex}
-            onMouseEnter={() => setHoveredIndex(i + 0.5)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
+            index={i}
           />
         </React.Fragment>
       )
@@ -106,8 +106,7 @@ const projects = ({ repositories }: ProjectProps) => {
         url={repo.url}
         homepageUrl={repo.homepageUrl}
         isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
-        onMouseEnter={() => setHoveredIndex(i)}
-        onMouseLeave={() => setHoveredIndex(null)}
+        index={i}
       />
     )
   })
@@ -129,23 +128,25 @@ const projects = ({ repositories }: ProjectProps) => {
   return (
     <>
       <Meta title={'My Work'} />
-      <section>
-        <Typography className={classes.heading} variant='h1' component='h1'>
-          Experience
-        </Typography>
-        {collaborations}
-      </section>
-      <section>
-        <Typography
-          className={classes.heading}
-          variant='h1'
-          component='h2'
-          gutterBottom
-        >
-          Projects
-        </Typography>
-        <GridWrap>{projects}</GridWrap>
-      </section>
+      <motion.div variants={stagger}>
+        <motion.section variants={fadeInUp}>
+          <Typography className={classes.heading} variant='h1' component='h1'>
+            Experience
+          </Typography>
+          {collaborations}
+        </motion.section>
+        <motion.section variants={fadeInUp}>
+          <Typography
+            className={classes.heading}
+            variant='h1'
+            component='h2'
+            gutterBottom
+          >
+            Projects
+          </Typography>
+          <GridWrap>{projects}</GridWrap>
+        </motion.section>
+      </motion.div>
     </>
   )
 }

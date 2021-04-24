@@ -1,5 +1,7 @@
-import { Box, Button, makeStyles, Typography } from '@material-ui/core'
+import { Button, makeStyles, Typography } from '@material-ui/core'
 import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
+import { motion } from 'framer-motion'
+import { fadeInUp, stagger } from '../animation'
 
 const useStyles = makeStyles(({ palette }) => ({
   section: {
@@ -35,8 +37,8 @@ export default function Home() {
   const classes = useStyles()
 
   return (
-    <Box component='section' className={classes.section}>
-      <header>
+    <motion.section className={classes.section} variants={stagger}>
+      <motion.header variants={fadeInUp}>
         <Typography
           component='h1'
           variant='h2'
@@ -54,8 +56,8 @@ export default function Home() {
             based in FL, US
           </Typography>
         </div>
-      </header>
-      <article className={classes.article}>
+      </motion.header>
+      <motion.article className={classes.article} variants={fadeInUp}>
         <Typography variant='body1' color='textSecondary'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
           elit vehicula, dapibus eros quis, suscipit diam. Curabitur efficitur
@@ -78,7 +80,7 @@ export default function Home() {
           <span aria-hidden='true'>[</span>download resume
           <span aria-hidden='true'>]</span>
         </Button>
-      </article>
-    </Box>
+      </motion.article>
+    </motion.section>
   )
 }

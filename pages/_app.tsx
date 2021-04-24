@@ -3,6 +3,7 @@ import { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import Layout from '../components/Layout'
 import { darkTheme } from '../theme'
+import { AnimatePresence } from 'framer-motion'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -16,9 +17,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AnimatePresence exitBeforeEnter>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AnimatePresence>
     </ThemeProvider>
   )
 }
