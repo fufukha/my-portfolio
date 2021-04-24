@@ -10,7 +10,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { StepData } from '../types'
 import ProjectLinks from './ProjectLinks'
 
@@ -55,8 +55,11 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
-    if(stepLabelRef.current) {
-      stepLabelRef.current.scrollIntoView({behavior: "smooth", block: 'center'})
+    if (stepLabelRef.current) {
+      stepLabelRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
     }
   }
 
