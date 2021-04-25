@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Repo from './Repo'
 import { IProject } from '../types'
+import { stagger, fadeInUp } from '../animation'
 
 const useStyles = makeStyles({
   root: {
@@ -36,6 +37,7 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
       key={i}
       className={classes.repo}
       component={motion.div}
+      variants={fadeInUp}
       whileHover={{ scale: 1.1, zIndex: 99999 }}
       onHoverStart={() => setHoverIndex(i)}
       onHoverEnd={() => setHoverIndex(null)}
@@ -56,7 +58,13 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
   ))
 
   return (
-    <Grid container spacing={3} className={classes.root}>
+    <Grid
+      container
+      spacing={3}
+      variants={stagger}
+      component={motion.div}
+      className={classes.root}
+    >
       {projects}
     </Grid>
   )

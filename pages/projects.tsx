@@ -86,7 +86,7 @@ const projects = ({ repositories }: ProjectProps) => {
           <Typography className={classes.heading} variant='h1' component='h1'>
             Experience
           </Typography>
-          {collaborations}
+          <motion.div variants={fadeInUp}>{collaborations}</motion.div>
         </motion.section>
         <motion.section variants={fadeInUp}>
           <Typography
