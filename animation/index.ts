@@ -30,7 +30,7 @@ export const dim = {
   animate: {
     opacity: 0.6,
     transition: {
-      duration: 0.6,
+      duration: 0.2,
       ease: easing,
     },
   }
