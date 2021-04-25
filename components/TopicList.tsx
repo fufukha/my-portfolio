@@ -4,6 +4,7 @@ import TopicItem from './TopicItem'
 const useStyles = makeStyles({
   container: {
     marginTop: '16px',
+    minHeight: '47.97px',
   },
 })
 
