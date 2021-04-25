@@ -36,7 +36,7 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
       key={i}
       className={classes.repo}
       component={motion.div}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.1, zIndex: 99999 }}
       onHoverStart={() => setHoverIndex(i)}
       onHoverEnd={() => setHoverIndex(null)}
     >

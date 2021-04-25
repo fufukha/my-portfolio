@@ -30,7 +30,6 @@ const useStyles = makeStyles(({ palette }) => ({
     height: '100%',
     top: 0,
     left: 0,
-    zIndex: 99999,
   },
   cardAction: {
     height: '64px',
@@ -72,6 +71,10 @@ const Repo = ({
         className={classes.card}
         elevation={0}
       >
+        <motion.div
+          className={classes.overlay}
+          animate={isDimmed(index) ? dim.animate : undefined}
+        ></motion.div>
         <CardContent component='header'>
           <Typography component='h4' variant='subtitle1' gutterBottom>
             {language}
@@ -101,10 +104,6 @@ const Repo = ({
         <CardActions className={classes.cardAction}>
           <ProjectLinks homepageUrl={homepageUrl} url={url} />
         </CardActions>
-        <motion.div
-          className={classes.overlay}
-          animate={isDimmed(index) ? dim.animate : undefined}
-        ></motion.div>
       </Card>
     </>
   )
