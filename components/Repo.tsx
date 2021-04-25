@@ -32,6 +32,9 @@ const useStyles = makeStyles(({ palette }) => ({
     left: 0,
     zIndex: 99999,
   },
+  cardAction: {
+    height: '64px',
+  },
 }))
 
 type RepoProps = {
@@ -95,7 +98,7 @@ const Repo = ({
           </Typography>
           <TopicList topicList={topics} />
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardAction}>
           <ProjectLinks homepageUrl={homepageUrl} url={url} />
         </CardActions>
         <motion.div

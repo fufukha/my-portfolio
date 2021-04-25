@@ -56,6 +56,8 @@ const projects = ({ repositories }: ProjectProps) => {
       data.description = cv.description
       data.topics = getTopics(cv.repositoryTopics.nodes)
       data.index = i
+      data.url= cv.url
+      data.homepageUrl=cv.homepageUrl
       accu.push(data)
       return accu
     },

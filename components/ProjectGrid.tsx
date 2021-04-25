@@ -49,6 +49,8 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
         topics={repo.topics}
         index={i}
         hoverIndex={hoverIndex}
+        url={repo.url}
+        homepageUrl={repo.homepageUrl}
       />
     </Grid>
   ))

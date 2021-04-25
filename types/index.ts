@@ -53,6 +53,8 @@ export interface IProject {
   description: string
   topics: string[]
   index: number
+  url?: string
+  homepageUrl?: string
 }
 
 export interface StepData {
