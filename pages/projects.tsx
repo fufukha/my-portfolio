@@ -1,46 +1,16 @@
 import { makeStyles, Typography } from '@material-ui/core'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
-import React, { useState } from 'react'
 import { fadeInUp, stagger } from '../animation'
 import Collaboration from '../components/Collaboration'
-import GridWrap from '../components/GridWrap'
+import ProjectGrid from '../components/ProjectGrid'
 import Meta from '../components/Meta'
-import Repo from '../components/Repo'
 import { viewer } from '../config'
 import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
-import { Repository, RepositoryTopic } from '../types'
+import { Repository, IProject } from '../types'
 import { dataVisualization } from '../utilis/projectsdata'
-
-type ProjectProps = {
-  repositories: Repository[]
-}
-
-type Acc = {
-  collabsRepos: Repository[]
-  projsRepos: Repository[]
-}
-
-const getTopics = (nodes: RepositoryTopic[]) => {
-  let topics: string[] = []
-
-  if (!Array.isArray(nodes) || !nodes.length) return topics
-
-  nodes.forEach((node) => topics.push(node.topic.name))
-
-  return topics
-}
-
-const getLang = (name: string) => {
-  if (name === 'type-in-arabic') return 'typescript'
-  if (name === 'liakos') return 'css'
-  return 'javascript'
-}
-
-const getImgUrl = (url: string) => {
-  return url.startsWith('https://avatars') ? '' : url
-}
+import { getImgUrl, getLang, getTopics } from '../utilis'
 
 const useStyles = makeStyles({
   heading: {
@@ -48,68 +18,49 @@ const useStyles = makeStyles({
   },
 })
 
+type ProjectProps = {
+  repositories: Repository[]
+}
+
 const projects = ({ repositories }: ProjectProps) => {
-  const [hoveredIndex, setHoveredIndex] = useState<null | number>(null)
-
-  let acc: Acc = {
-    collabsRepos: [],
-    projsRepos: [],
-  }
-
-  const sortedRepos = repositories.reduce((acc, cv) => {
-    if (cv.owner.login !== viewer) {
-      acc.collabsRepos.push(cv)
-    } else {
-      acc.projsRepos.push(cv)
-    }
-    return acc
-  }, acc)
+  const sortedRepos = repositories.reduce(
+    (acc: { collabsRepos: Repository[]; projsRepos: Repository[] }, cv) => {
+      if (cv.owner.login !== viewer) {
+        acc.collabsRepos.push(cv)
+      } else {
+        acc.projsRepos.push(cv)
+      }
+      return acc
+    },
+    { collabsRepos: [], projsRepos: [] }
+  )
 
   const { collabsRepos, projsRepos } = sortedRepos
 
-  const projects = projsRepos.map((repo, i) => {
-    if (repo.name === 'comments') {
-      return (
-        <React.Fragment key={i}>
-          <Repo
-            language={dataVisualization.language}
-            title={dataVisualization.name}
-            imageUrl={dataVisualization.imageUrl}
-            description={dataVisualization.description}
-            topics={dataVisualization.topics}
-            isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
-            index={i}
-          />
-          <Repo
-            language={getLang(repo.name)}
-            title={repo.name}
-            imageUrl={getImgUrl(repo.openGraphImageUrl)}
-            description={repo.description}
-            topics={getTopics(repo.repositoryTopics.nodes)}
-            url={repo.url}
-            homepageUrl={repo.homepageUrl}
-            isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
-            index={i}
-          />
-        </React.Fragment>
-      )
-    }
-
-    return (
-      <Repo
-        key={i}
-        language={getLang(repo.name)}
-        title={repo.name}
-        imageUrl={getImgUrl(repo.openGraphImageUrl)}
-        description={repo.description}
-        topics={getTopics(repo.repositoryTopics.nodes)}
-        url={repo.url}
-        homepageUrl={repo.homepageUrl}
-        isDimmed={hoveredIndex === null ? false : i !== hoveredIndex}
-        index={i}
-      />
-    )
-  })
+  const projectArray: IProject[] = projsRepos.reduce(
+    (accu: IProject[], cv, i) => {
+      if (cv.name === 'comments') {
+        let data = {} as IProject
+        data.title = dataVisualization.name
+        data.language = dataVisualization.language
+        data.imageUrl = dataVisualization.imageUrl
+        data.description = dataVisualization.description
+        data.topics = dataVisualization.topics
+        data.index = i - 0.5
+        accu.push(data)
+      }
+      let data = {} as IProject
+      data.title = cv.name
+      data.language = getLang(cv.name)
+      data.imageUrl = getImgUrl(cv.openGraphImageUrl)
+      data.description = cv.description
+      data.topics = getTopics(cv.repositoryTopics.nodes)
+      data.index = i
+      accu.push(data)
+      return accu
+    },
+    []
+  )
 
   const collaborations = collabsRepos.map((repo, i) => (
     <Collaboration
@@ -144,7 +95,7 @@ const projects = ({ repositories }: ProjectProps) => {
           >
             Projects
           </Typography>
-          <GridWrap>{projects}</GridWrap>
+          <ProjectGrid projectArray={projectArray}></ProjectGrid>
         </motion.section>
       </motion.div>
     </>

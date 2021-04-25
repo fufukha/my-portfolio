@@ -1,18 +1,24 @@
 import {
+  Box,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   makeStyles,
   Typography,
+  Grid,
+  Paper,
 } from '@material-ui/core'
 import clsx from 'clsx'
+import { useState } from 'react'
 import ProjectLinks from './ProjectLinks'
 import TopicList from './TopicList'
+import { motion } from 'framer-motion'
+import { fadeInUp } from '../animation'
 
 const useStyles = makeStyles({
   card: {
-    width: '400px',
+    width: '100%',
     '& > img': {
       width: '90%',
       height: '200px',
@@ -34,8 +40,6 @@ type RepoProps = {
   homepageUrl?: string
   topics: string[]
   isDimmed: boolean
-  onMouseEnter: () => void
-  onMouseLeave: () => void
   index: number
 }
 
@@ -47,12 +51,12 @@ const Repo = ({
   url,
   homepageUrl,
   topics,
-  isDimmed,
-  onMouseEnter,
-  onMouseLeave,
   index,
 }: RepoProps) => {
   const classes = useStyles()
+  const [hoveredIndex, setHoveredIndex] = useState<null | number>(null)
+
+  const isDimmed = hoveredIndex === null ? false : index !== hoveredIndex
 
   return (
     <Card

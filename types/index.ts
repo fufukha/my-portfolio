@@ -46,6 +46,15 @@ export interface DataVisualization {
   topics: string[]
 }
 
+export interface IProject {
+  title: string
+  language: string
+  imageUrl: string
+  description: string
+  topics: string[]
+  index: number
+}
+
 export interface StepData {
   label: string | JSX.Element
   content: string | JSX.Element
