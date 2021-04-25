@@ -51,14 +51,15 @@ interface VerticalStepperProps {
 
 const VerticalStepper = ({ steps }: VerticalStepperProps) => {
   const [activeStep, setActiveStep] = React.useState(0)
-  const stepLabelRef = useRef<null | HTMLSpanElement>(null)
+  const stepRef = useRef<null | HTMLDivElement>(null)
+  const topRef = useRef<null | HTMLDivElement>(null)
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
-    if (stepLabelRef.current) {
-      stepLabelRef.current.scrollIntoView({
+    if (stepRef.current) {
+      stepRef.current.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: 'start',
       })
     }
   }
@@ -69,16 +70,21 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
 
   const handleReset = () => {
     setActiveStep(0)
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0
+    })
+
   }
 
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} orientation='vertical'>
+      <Stepper activeStep={activeStep} orientation='vertical' ref={topRef}>
         {steps.map((step, index) => (
-          <Step key={index}>
-            <StepLabel ref={stepLabelRef}>{step.label}</StepLabel>
+          <Step key={index} ref={stepRef}>
+            <StepLabel>{step.label}</StepLabel>
             <StepContent>
               <Typography className={classes.text}>{step.content}</Typography>
               {step.arabicContent && (
