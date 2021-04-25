@@ -2,6 +2,7 @@ import { Grid, makeStyles } from '@material-ui/core'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Repo from './Repo'
+import { IProject } from '../types'
 
 const useStyles = makeStyles({
   root: {
@@ -19,20 +20,11 @@ const useStyles = makeStyles({
   },
 })
 
-type Project = {
-  title: string
-  language: string
-  imageUrl: string
-  description: string
-  topics: string[]
-  index: number
+interface ProjectGridProps {
+  projectArray: IProject[]
 }
 
-interface GridWrapProps {
-  projectArray: Project[]
-}
-
-const ProjectGrid = ({ projectArray }: GridWrapProps) => {
+const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   const classes = useStyles()
 
