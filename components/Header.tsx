@@ -29,9 +29,6 @@ function ElevationScroll({ children }: ElevationScrollProps) {
 const useStyles = makeStyles<Theme>(({ palette }) => ({
   appBar: {
     background: palette.background.default,
-    '& a': {
-      textDecoration: 'none',
-    },
     '&  nav': {
       margin: '0 auto',
       display: 'flex',

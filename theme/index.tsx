@@ -1,5 +1,4 @@
 import grey from '@material-ui/core/colors/grey'
-import orange from '@material-ui/core/colors/orange'
 import purple from '@material-ui/core/colors/purple'
 import cyan from '@material-ui/core/colors/cyan'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
@@ -89,7 +88,7 @@ let darkTheme = createMuiTheme({
       fontFamily: 'Source Code Pro, monospace',
       fontSize: '3.5rem',
       fontWeight: 900,
-      background: 'linear-gradient(145deg, #00c3d7, #00d4a7)',
+      background: `linear-gradient(145deg, ${cyan[500]}, #00d4a7)`,
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
@@ -108,6 +107,8 @@ let darkTheme = createMuiTheme({
     body1: {
       fontSize: '0.875rem',
       lineHeight: '1.75rem',
+      '-webkit-text-size-adjust': '100%',
+      letterSpacing: '0.2px',
     },
     subtitle1: {
       fontSize: '0.625rem',
@@ -124,11 +125,19 @@ let darkTheme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         '::selection': {
-          background: cyan[500],
+          background: cyan[200],
+          opacity: 0.9,
           color: 'black',
+        },
+        ':focus': {
+          outlineColor: cyan[500],
+          outlineOffset: '5px',
         },
         html: {
           WebkitFontSmoothing: 'auto',
+        },
+        a: {
+          textDecoration: 'none',
         },
       },
     },

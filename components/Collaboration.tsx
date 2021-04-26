@@ -47,31 +47,61 @@ const Collaboration = ({
   return (
     <Card className={classes.card} elevation={0}>
       <CardContent>
-        <Typography component='h3' variant='h3'>
+        <Typography component='h3' variant='h3' gutterBottom>
           {title.replace(/[-_]/g, ' ')}
         </Typography>
         {title === 'xstream' && (
-          <Typography component='p' variant='subtitle2' gutterBottom>
+          <Typography
+            component='p'
+            variant='subtitle2'
+            color='textPrimary'
+            gutterBottom
+          >
             June 2019 - present
           </Typography>
         )}
         {title === 'xstream' && (
           <>
-            <Typography component='p' color='textSecondary' variant='body1'>
+            <Typography
+              component='p'
+              color='textSecondary'
+              variant='body1'
+              gutterBottom
+            >
               {
                 '• Implemented new features independently or paired with senior developer'
               }
             </Typography>
-            <Typography component='p' color='textSecondary' variant='body1'>
+            <Typography
+              component='p'
+              color='textSecondary'
+              variant='body1'
+              gutterBottom
+            >
               {'• Brainstormed and designed new features'}
             </Typography>
-            <Typography component='p' color='textSecondary' variant='body1'>
+            <Typography
+              component='p'
+              color='textSecondary'
+              variant='body1'
+              gutterBottom
+            >
               {'• Created mock-ups using Figma and Sketchpad'}
             </Typography>
-            <Typography component='p' color='textSecondary' variant='body1'>
+            <Typography
+              component='p'
+              color='textSecondary'
+              variant='body1'
+              gutterBottom
+            >
               {'• Delivered a responsive application'}
             </Typography>
-            <Typography component='p' color='textSecondary' variant='body1'>
+            <Typography
+              component='p'
+              color='textSecondary'
+              variant='body1'
+              gutterBottom
+            >
               {'• Researched new technologies to provide technical insight'}
             </Typography>
           </>

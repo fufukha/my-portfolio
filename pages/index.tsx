@@ -74,11 +74,7 @@ export default function Home() {
   return (
     <motion.section className={classes.section} variants={stagger}>
       <motion.header variants={fadeInUp}>
-        <Typography
-          component='h1'
-          variant='h2'
-          gutterBottom
-        >
+        <Typography component='h1' variant='h2' gutterBottom>
           I am Kamile,
         </Typography>
         <Typography component='h2' variant='h1' gutterBottom>
