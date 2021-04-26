@@ -6,11 +6,6 @@ import { IProject } from '../types'
 import { stagger, fadeInUp } from '../animation'
 
 const useStyles = makeStyles({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    marginTop: '20px',
-  },
   repo: {
     position: 'relative',
     '&:nth-child(2) p': {
@@ -61,9 +56,9 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
     <Grid
       container
       spacing={3}
+      wrap='wrap'
       variants={stagger}
       component={motion.div}
-      className={classes.root}
     >
       {projects}
     </Grid>

@@ -58,12 +58,12 @@ type LayoutProps = {
   children: JSX.Element
 }
 
-const useStyles = makeStyles(({ mixins }) => ({
+const useStyles = makeStyles({
   main: {
     paddingTop: '35px',
     paddingBottom: '70px',
   },
-}))
+})
 
 const Layout = ({ children }: LayoutProps) => {
   const classes = useStyles()
