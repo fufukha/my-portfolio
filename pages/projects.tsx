@@ -14,7 +14,7 @@ import { getImgUrl, getLang, getTopics } from '../utilis'
 
 const useStyles = makeStyles({
   heading: {
-    marginBottom: '16px',
+    marginBottom: '35px',
   },
 })
 
