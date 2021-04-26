@@ -86,14 +86,19 @@ let darkTheme = createMuiTheme({
     fontFamily:
       'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue, Roboto, Helvetica, Arial, sans-serif',
     h1: {
-      fontFamily: 'Roboto Mono, monospace',
-      fontSize: '1.5rem',
-      fontWeight: 700,
+      fontFamily: 'Source Code Pro, monospace',
+      fontSize: '3.5rem',
+      fontWeight: 900,
+      background: 'linear-gradient(145deg, #00c3d7, #00d4a7)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      textFillColor: 'transparent',
     },
     h2: {
-      fontFamily: 'Roboto Mono, monospace',
-      fontSize: '1.25rem',
-      fontWeight: 500,
+      fontFamily: 'Source Code Pro, monospace',
+      fontSize: '2rem',
+      fontWeight: 700,
     },
     h3: {
       fontSize: '1.25rem',
@@ -116,6 +121,17 @@ let darkTheme = createMuiTheme({
     borderRadius: 0,
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '::selection': {
+          background: cyan[500],
+          color: 'black',
+        },
+        html: {
+          WebkitFontSmoothing: 'auto',
+        },
+      },
+    },
     MuiButton: {
       root: {
         textTransform: 'lowercase',

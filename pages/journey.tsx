@@ -7,7 +7,7 @@ import { steps } from '../utilis/projectsdata'
 
 const useStyles = makeStyles({
   heading: {
-    marginBottom: '16px',
+    marginBottom: '35px',
   },
 })
 

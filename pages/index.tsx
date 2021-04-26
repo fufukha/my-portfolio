@@ -42,7 +42,6 @@ export default function Home() {
         <Typography
           component='h1'
           variant='h2'
-          color='textSecondary'
           gutterBottom
         >
           I am Kamile,
@@ -51,9 +50,9 @@ export default function Home() {
           Web / React Developer
         </Typography>
         <div className={classes.location}>
-          <ArrowForwardIosIcon color='primary' />
-          <Typography component='h3' variant='h2' color='textSecondary'>
-            based in FL, US
+          <ArrowForwardIosIcon color='primary' fontSize={'large'} />
+          <Typography component='h3' variant='h2'>
+            based in the US
           </Typography>
         </div>
       </motion.header>

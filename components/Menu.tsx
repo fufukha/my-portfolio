@@ -63,7 +63,7 @@ const useStyles = makeStyles<Theme>(({ typography }) => ({
   },
   listItem: {
     paddingLeft: '40px',
-    '& >  span': {
+    '& >  a, & >  span': {
       fontFamily: typography.h2.fontFamily,
       fontSize: typography.body1.fontSize,
     },
