@@ -10,7 +10,7 @@ import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
 import { Repository, IProject } from '../types'
 import { dataVisualization } from '../utilis/projectsdata'
-import { getImgUrl, getLang, getTopics } from '../utilis'
+import { getImgUrl, getLang, getTopics } from '../utilis/index'
 
 const useStyles = makeStyles({
   heading: {

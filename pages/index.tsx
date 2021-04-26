@@ -2,6 +2,7 @@ import { Button, makeStyles, Typography } from '@material-ui/core'
 import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 import { motion } from 'framer-motion'
 import { fadeInUp, stagger } from '../animation'
+import BrandSVG from '../components/BrandSVG'
 
 const useStyles = makeStyles(({ palette }) => ({
   section: {
@@ -19,6 +20,8 @@ const useStyles = makeStyles(({ palette }) => ({
   article: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
+    paddingTop: '20px',
     '& > p': {
       marginBottom: '70px',
     },
@@ -31,10 +34,26 @@ const useStyles = makeStyles(({ palette }) => ({
       maxWidth: '200px',
     },
   },
+  technology: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+    width: '100%',
+    justifyContent: 'center',
+    marginBottom: '35px',
+    '& > div': {
+      padding: '12px',
+    },
+    '@media screen and (min-width: 960px)': {
+      justifyContent: 'space-around',
+      width: '90%',
+    },
+  },
 }))
 
 export default function Home() {
   const classes = useStyles()
+  const size = 40
 
   return (
     <motion.section className={classes.section} variants={stagger}>
@@ -67,6 +86,19 @@ export default function Home() {
           vulputate sem gravida sed. Nullam erat felis, porta eget ante sed,
           suscipit congue nisl. Nulla a sem mauris.
         </Typography>
+        <div className={classes.technology}>
+          <Typography component='span' variant='srOnly'>
+            Technologies
+          </Typography>
+          <BrandSVG name='javascript' width={size} color='#fed636' />
+          <BrandSVG name='typescript' width={size} color='#007ace' />
+          <BrandSVG name='react' width={size} color='#61dafb' />
+          <BrandSVG name='nextjs' height={size} color='#fff' />
+          <BrandSVG name='redux' width={size} color='#774abd' />
+          <BrandSVG name='apollo' width={size} color='#fff' />
+          <BrandSVG name='jest' width={size} height={size} />
+          <BrandSVG name='figma' height={size} />
+        </div>
         <Button
           component='a'
           href='../public/documents/resume.pdf'

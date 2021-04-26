@@ -96,3 +96,15 @@ export enum Paths {
   PROJECTS = '/projects',
   JOURNEY = '/journey',
 }
+
+export type Brands =
+  | 'javascript'
+  | 'typescript'
+  | 'react'
+  | 'nextjs'
+  | 'graphql'
+  | 'git'
+  | 'redux'
+  | 'apollo'
+  | 'figma'
+  | 'jest'
