@@ -10,7 +10,7 @@ const useStyles = makeStyles<Theme>(({ palette }) => ({
     padding: '0 10px',
     fontWeight: 700,
     fontSize: '12px',
-    color: palette.primary.light,
+    color: palette.primary.main,
     lineHeight: '18px',
     whiteSpace: 'nowrap',
     verticalAlign: 'middle',
