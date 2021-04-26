@@ -33,5 +33,18 @@ export const dim = {
       duration: 0.2,
       ease: easing,
     },
-  }
+  },
+}
+
+export const unCover = {
+  inital: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      ease: easing,
+    },
+  },
 }

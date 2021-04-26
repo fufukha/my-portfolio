@@ -1,10 +1,10 @@
 import { Button, makeStyles, Typography } from '@material-ui/core'
 import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 import { motion } from 'framer-motion'
-import { fadeInUp, stagger } from '../animation'
+import { fadeInUp, stagger, unCover } from '../animation'
 import BrandSVG from '../components/BrandSVG'
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, typography }) => ({
   section: {
     '& > header': {
       marginBottom: '35px',
@@ -49,6 +49,22 @@ const useStyles = makeStyles(({ palette }) => ({
       width: '90%',
     },
   },
+  spoiler: {
+    position: 'relative',
+    display: 'inline-block',
+    color: palette.primary.main,
+  },
+  spoilerOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: '-4px',
+    paddingLeft: '2px',
+    width: '90px',
+    color: palette.text.secondary,
+    height: typography.body1.lineHeight,
+    background: palette.background.paper,
+    textAlign: 'center',
+  },
 }))
 
 export default function Home() {
@@ -77,14 +93,24 @@ export default function Home() {
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
         <Typography variant='body1' color='textSecondary'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
-          elit vehicula, dapibus eros quis, suscipit diam. Curabitur efficitur
-          facilisis rutrum. Pellentesque odio massa, semper vitae laoreet sed,
-          interdum id elit. Vestibulum mi ipsum, auctor non felis non, lobortis{' '}
-          <span>ReactJS</span>, <span>TypeScript</span>, <span>NextJS</span>,{' '}
-          <span>Apollo Client</span> tortor. Etiam tincidunt odio dui, sed
-          vulputate sem gravida sed. Nullam erat felis, porta eget ante sed,
-          suscipit congue nisl. Nulla a sem mauris.
+          Welcome to my portfolio. I am a self-taught{' '}
+          <span>front-end developer</span> who loves building <span>React</span>{' '}
+          applications. Recently, I have decided to turn this hobby of mine into
+          a full-fledge career. I have put together a selection of my projects
+          for you. These projects showcase not only my familiarity with{' '}
+          <span>React</span>, <span>Redux</span>, <span>Typescript</span>,{' '}
+          <span>accessibility</span> but also solutions to various challenges
+          these applications presented. I also welcome you to walk through my
+          journey into web developement and my goals for the future.{' '}
+          <div className={classes.spoiler}>
+            Full Stack!
+            <motion.div
+              className={classes.spoilerOverlay}
+              whileTap={unCover.animate}
+            >
+              Spoiler Alert
+            </motion.div>
+          </div>
         </Typography>
         <div className={classes.technology}>
           <Typography component='span' variant='srOnly'>
