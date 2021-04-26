@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core'
+import { Link as MuiLink } from '@material-ui/core'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -17,8 +17,9 @@ const Tabs = () => {
       {paths.map((path, i, paths) => (
         <React.Fragment key={i}>
           <Link href={path} passHref>
-            <Typography
+            <MuiLink
               component='a'
+              underline='none'
               variant='body1'
               role='tab'
               aria-controls={`nav-tabpanel-${i}`}
@@ -28,7 +29,7 @@ const Tabs = () => {
               color={path === pathname ? 'primary' : 'textSecondary'}
             >
               {pageName(path)}
-            </Typography>
+            </MuiLink>
           </Link>
           {i < paths.length - 1 && <span className='separator'></span>}
         </React.Fragment>
