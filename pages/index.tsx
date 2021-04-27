@@ -88,26 +88,28 @@ export default function Home() {
         </div>
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
-        <Typography variant='body1' color='textSecondary'>
+        <Typography component='p' variant='body1' color='textSecondary'>
           Welcome to my portfolio. I am a self-taught{' '}
           <span>front-end developer</span> who loves building <span>React</span>{' '}
           applications. Recently, I have decided to turn this hobby of mine into
-          a full-fledge career. I have put together a selection of my projects
-          for you. These projects showcase not only my familiarity with{' '}
-          <span>React</span>, <span>Redux</span>, <span>Typescript</span>,{' '}
-          <span>accessibility</span> but also solutions to various challenges
-          these applications presented. I also welcome you to walk through my
-          journey into web developement and my goals for the future.{' '}
-          <div className={classes.spoiler}>
+          a full-fledged career. I pull together a selection of my projects for
+          you. These projects showcase my skills in <span>React</span>,{' '}
+          <span>Redux</span>, <span>Typescript</span>,{' '}
+          <span>web accessibility</span> as well as solutions to various
+          challenges these applications presented. I also welcome you to walk
+          through my journey into web developement and get a glimpse at my
+          future goals:{' '}
+          <span className={classes.spoiler}>
             Full Stack!
-            <motion.div
+            <motion.span
               className={classes.spoilerOverlay}
               whileTap={unCover.animate}
             >
               Spoiler Alert
-            </motion.div>
-          </div>
+            </motion.span>
+          </span>
         </Typography>
+
         <div className={classes.technology}>
           <Typography component='span' variant='srOnly'>
             Technologies
@@ -123,7 +125,7 @@ export default function Home() {
         </div>
         <Button
           component='a'
-          href='../public/documents/resume.pdf'
+          href='/documents/resume.pdf'
           download
           variant='contained'
           color='primary'
