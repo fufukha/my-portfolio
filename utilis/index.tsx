@@ -112,11 +112,11 @@ export const getBrandSVG = (brand: Brands) => {
             <g
               id='Page-1'
               stroke='none'
-              stroke-width='1'
+              strokeWidth='1'
               fill='none'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             >
-              <g id='Black-Next.js' fill='currentColor' fill-rule='nonzero'>
+              <g id='Black-Next.js' fill='currentColor' fillRule='nonzero'>
                 <g id='next-black'>
                   <g id='EXT-+-Type-something'>
                     <path
