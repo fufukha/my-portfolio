@@ -30,7 +30,7 @@ const useStyles = makeStyles(({ palette }) => ({
     height: '100%',
     top: 0,
     left: 0,
-    zIndex: 999,
+    zIndex: 1,
   },
   cardAction: {
     height: '64px',

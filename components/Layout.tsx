@@ -23,6 +23,7 @@ const useStyles2 = makeStyles(() =>
       position: 'fixed',
       bottom: '8%',
       right: '8%',
+      zIndex: 10,
     },
   })
 )
