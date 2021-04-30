@@ -74,6 +74,7 @@ const Repo = ({
       >
         <motion.div
           className={classes.overlay}
+          style={{display: isDimmed(index) ? 'block' : 'none'}}
           animate={isDimmed(index) ? dim.animate : undefined}
         ></motion.div>
         <CardContent component='header'>

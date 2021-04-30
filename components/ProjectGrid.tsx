@@ -8,7 +8,7 @@ import { stagger, fadeInUp } from '../animation'
 const useStyles = makeStyles({
   repo: {
     position: 'relative',
-    '&:nth-child(2) p': {
+    '& > #shortlinkclient > .MuiCardContent-root > p': {
       '@media screen and (min-width: 960px)': {
         height: '108px',
       },
@@ -33,7 +33,7 @@ const ProjectGrid = ({ projectArray }: ProjectGridProps) => {
       className={classes.repo}
       component={motion.div}
       variants={fadeInUp}
-      whileHover={{ scale: 1.1, zIndex: 99999 }}
+      whileHover={{ scale: 1.1, zIndex: 9 }}
       onHoverStart={() => setHoverIndex(i)}
       onHoverEnd={() => setHoverIndex(null)}
     >
