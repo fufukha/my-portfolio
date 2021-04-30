@@ -39,7 +39,7 @@ const projects = ({ repositories }: ProjectProps) => {
 
   const projectArray: IProject[] = projsRepos.reduce(
     (accu: IProject[], cv, i) => {
-      if (cv.name === 'comments') {
+      if (cv.name === 'minesweeper') {
         let data = {} as IProject
         data.title = dataVisualization.name
         data.language = dataVisualization.language

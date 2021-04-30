@@ -11,7 +11,7 @@ export const getTopics = (nodes: RepositoryTopic[]) => {
 }
 
 export const getLang = (name: string) => {
-  if (name === 'type-in-arabic') return 'typescript'
+  if (name === 'type-in-arabic' || name === 'my-portfolio') return 'typescript'
   if (name === 'liakos') return 'css'
   return 'javascript'
 }

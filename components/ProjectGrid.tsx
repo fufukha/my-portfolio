@@ -10,7 +10,12 @@ const useStyles = makeStyles({
     position: 'relative',
     '& > #shortlinkclient > .MuiCardContent-root > p': {
       '@media screen and (min-width: 960px)': {
-        height: '108px',
+        minHeight: '85px',
+      },
+    },
+    '& > #liakos > .MuiCardContent-root > p': {
+      '@media screen and (min-width: 960px)': {
+        minHeight: '80px',
       },
     },
   },
