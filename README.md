@@ -7,7 +7,7 @@ It uses [Framer Motion](https://www.framer.com/motion/) for animation and [Mater
 
 <p>
   <img src="https://github.com/fufukha/my-portfolio/blob/main/demo/demo.gif?raw=true" width="400" alt="animated demo of the desktop version of the portfolio">
-  <img src="https://github.com/fufukha/my-portfolio/blob/main/demo/demo_mobile.png?raw=true" height="260" alt="still demo of the mobile version of portfolio">
+  <img src="https://github.com/fufukha/my-portfolio/blob/main/demo/demo_mobile.png?raw=true" height="258.47" alt="still demo of the mobile version of portfolio">
 </p>
 
 ## 🖥 Browser compatibility 
