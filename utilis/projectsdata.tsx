@@ -1,4 +1,5 @@
 import { DataVisualization, StepData } from '../types'
+import Typography from '@material-ui/core/Typography'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 
 export const dataVisualization: DataVisualization = {
@@ -33,9 +34,9 @@ export const steps: StepData[] = [
       <>
         Teaching English as a second language remotely has connected me to
         people from across the world. My interest in <span>coding</span>{' '}
-        actually began after reading a student's disseration on programming
-        languages and methodology. I was so fascinated by it, then with zero
-        prior knowledge, I decided to venture into the world of{' '}
+        actually began after reviewing a student's dissertation on programming
+        languages and methodology. I was so fascinated by it that I&mdash;with
+        zero prior knowledge&mdash;decided to venture into the world of{' '}
         <span>coding</span>.
       </>
     ),
@@ -45,8 +46,8 @@ export const steps: StepData[] = [
     content: (
       <>
         <span>Ruby</span> was the first language I learned. Its English-like
-        synthax was a great start for novice. I built many games in this
-        language. However, I wanted to create applications that run in the
+        syntax is a great start for novices. I had a lot of fun building games in this
+        language; however, I wanted to create applications that ran in the
         browser. Onward we go!
       </>
     ),
@@ -70,9 +71,9 @@ export const steps: StepData[] = [
     label: 'Responsive Design',
     content: (
       <>
-        After learning the fundamental of <span>responsive design</span> and
+        After learning the fundamentals of <span>responsive design</span> and
         design strategies such as <span>mobile-first</span>, I created sample
-        pages of my own design as well as dups.
+        pages of my own design and clones.
       </>
     ),
     url: 'https://github.com/fufukha/minesweeper',
@@ -84,9 +85,9 @@ export const steps: StepData[] = [
       <>
         Ah... <span>React</span>. Around this time, my most challenging{' '}
         <span>React</span> applications was Minesweeper. Originally, I built it
-        to focus on using <span>Redux</span> to manage the state but it also
-        lead delve deeper into <span>data structures and algorithms</span>.
-        Since then I have been built numerous <span>React</span> applications.
+        to focus on using <span>Redux</span> to manage the state but it also led
+        me to delve deeper into <span>data structures and algorithms</span>.
+        Since then I have built numerous <span>React</span> applications.
       </>
     ),
     url: 'https://github.com/fufukha/minesweeper',
@@ -96,15 +97,16 @@ export const steps: StepData[] = [
     label: 'XStream Collaboration',
     content: (
       <>
-        I was invited to collaborate on a project. It was an incredible
-        experience to work alongside another developer. I was in charge of
-        designing and implementing certain features and paired with the lead
-        developer on many of the rest. I also presented my ideas that I thought
-        were meaningful to the project of that particular roll-out. This was
-        also my first time working with Firebase.
+        I was invited to <span>collaborate</span> on a project. It was an
+        incredible experience to work alongside another developer. I was in
+        charge of designing and implementing certain features and paired with
+        the lead developer on many of the rest. I also presented my ideas that I
+        thought were meaningful to the project or that particular roll-out. This
+        was also my first time working with <span>Firebase</span>.
       </>
     ),
-    url: '',
+    url: 'https://github.com/abogalambo/xstream',
+    homepageUrl: 'http://x-stream-45773.firebaseapp.com/'
   },
   {
     label: 'TypeScript',
@@ -112,9 +114,10 @@ export const steps: StepData[] = [
       <>
         I{' '}
         <span>
+          <Typography variant='srOnly'>heart</Typography>
           <FavoriteIcon id='#heart' fontSize='small' />
         </span>{' '}
-        TypeScript! No more typos and passing the wrong arguments! of typoes.
+        TypeScript! No more silly typos and passing the wrong arguments!
       </>
     ),
     url: 'https://github.com/fufukha/type-in-arabic',
@@ -124,12 +127,12 @@ export const steps: StepData[] = [
     label: 'Future',
     content: (
       <>
-        I have gained a lot of experience building application, and researching
-        and learning technologies to suit my needs. However, building and design
-        web app as a hobby is no longer stratching the itch. I am excited to
-        turn Front End development into a full time career. As for just my study
-        goals, I would love to delve into the back-end more and become more{' '}
-        <span>Full Stack</span>.
+        I have gained a lot of experience building applications, and researching
+        and learning technologies to suit my needs. However, building and designing
+        web app as a just hobby is no longer scratching the itch. I am excited to
+        turn <span>front-end developer</span> into a full time{' '}
+        <span>career</span>. As for my study goals, I would love to explore
+        the <span>back-end</span> more and become more <span>Full Stack</span>.
       </>
     ),
   },
