@@ -9,7 +9,7 @@ import { viewer } from '../config'
 import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
 import { Repository, IProject } from '../types'
-import { dataVisualization } from '../utilis/projectsdata'
+import { dataVisualization } from '../utilis'
 import { getImgUrl, getLang, getTopics } from '../utilis/index'
 
 const useStyles = makeStyles({

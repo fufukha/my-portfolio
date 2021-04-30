@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, stagger } from '../animation'
 import Meta from '../components/Meta'
 import VerticalStepper from '../components/VerticalStepper'
-import { steps } from '../utilis/projectsdata'
+import { steps } from '../utilis'
 
 const useStyles = makeStyles({
   heading: {
