@@ -14,14 +14,13 @@ type TopicListProps = {
 
 const TopicList = ({ topicList }: TopicListProps) => {
   const topics = topicList.map((topic, i) => (
-    <TopicItem key={i} topic={topic} />
+    <TopicItem key={i} role="listitem" topic={topic} />
   ))
 
   const classes = useStyles()
 
   return (
-    <div className={classes.container}>
-      <Typography variant='srOnly'>Topics</Typography>
+    <div role="list" aria-label="Topics" className={classes.container}>
       {topics}
     </div>
   )

@@ -83,9 +83,11 @@ export default function Home() {
           challenges these applications presented. I also welcome you to walk
           through my journey into web developement and get a glimpse at my
           future goals:{' '}
-          <span className={classes.spoiler}>
+          <span title="spoiler alert" aria-label="spoiler alert full stack" className={classes.spoiler}>
             Full Stack!
             <motion.span
+              role="presentation"
+              aria-hidden="true"
               className={classes.spoilerOverlay}
               whileTap={unCover.animate}
             >

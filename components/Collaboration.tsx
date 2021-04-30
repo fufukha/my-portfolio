@@ -110,16 +110,16 @@ const Collaboration = ({
       </CardContent>
       <CardActions>
         <IconButton
-          aria-label='Project\s website'
-          title='Project\s website'
+          aria-label={`${title} Website`}
+          title={`${title} Website`}
           href={homepageUrl}
           component='a'
         >
           <LaunchIcon />
         </IconButton>
         <IconButton
-          aria-label='Github respository'
-          title='GitHub repository'
+          aria-label={`${title} GitHub repository`}
+          title={`${title} GitHub repository`}
           href={url}
           component='a'
         >

@@ -22,12 +22,13 @@ const useStyles = makeStyles<Theme>(({ palette }) => ({
 
 type TopicProps = {
   topic: string
+  role: string
 }
 
-const TopicItem = ({ topic }: TopicProps) => {
+const TopicItem = ({ topic, role }: TopicProps) => {
   const classes = useStyles()
 
-  return <div className={classes.topicContainer}>{topic}</div>
+  return <div role={role} aria-label={topic} className={classes.topicContainer}>{topic}</div>
 }
 
 export default TopicItem
