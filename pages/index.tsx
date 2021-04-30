@@ -2,7 +2,7 @@ import { Button, makeStyles, Typography } from '@material-ui/core'
 import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 import { motion } from 'framer-motion'
 import { fadeInUp, stagger, unCover } from '../animation'
-import BrandSVG from '../components/BrandSVG'
+import BrandList from '../components/BrandList'
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   section: {
@@ -34,21 +34,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
       maxWidth: '200px',
     },
   },
-  technology: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignSelf: 'center',
-    width: '100%',
-    justifyContent: 'center',
-    marginBottom: '35px',
-    '& > div': {
-      padding: '12px',
-    },
-    '@media screen and (min-width: 960px)': {
-      justifyContent: 'space-around',
-      width: '90%',
-    },
-  },
   spoiler: {
     position: 'relative',
     display: 'inline-block',
@@ -69,7 +54,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 
 export default function Home() {
   const classes = useStyles()
-  const size = 40
 
   return (
     <motion.section className={classes.section} variants={stagger}>
@@ -109,20 +93,7 @@ export default function Home() {
             </motion.span>
           </span>
         </Typography>
-
-        <div className={classes.technology}>
-          <Typography component='span' variant='srOnly'>
-            Technologies
-          </Typography>
-          <BrandSVG name='javascript' width={size} color='#fed636' />
-          <BrandSVG name='typescript' width={size} color='#007ace' />
-          <BrandSVG name='react' width={size} color='#61dafb' />
-          <BrandSVG name='nextjs' height={size} color='#fff' />
-          <BrandSVG name='redux' width={size} color='#774abd' />
-          <BrandSVG name='apollo' width={size} color='#fff' />
-          <BrandSVG name='jest' width={size} height={size} />
-          <BrandSVG name='figma' height={size} />
-        </div>
+        <BrandList />
         <Button
           component='a'
           href='/documents/resume.pdf'

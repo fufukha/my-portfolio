@@ -27,13 +27,18 @@ interface BrandSVGProps {
   height?: number
   name: Brands
   color?: string
+  role?: string
 }
 
-const BrandSVG = ({ width, height, name, color }: BrandSVGProps) => {
+const BrandSVG = ({ width, height, name, color, role }: BrandSVGProps) => {
   const props: StyleProps = { width, color, height }
   const classes = useStyles(props)
 
-  return <div className={classes.root}>{getBrandSVG(name)}</div>
+  return (
+    <div className={classes.root} title={name} role={role} aria-label={name}>
+      {getBrandSVG(name)}
+    </div>
+    )
 }
 
 export default BrandSVG

@@ -108,3 +108,10 @@ export type Brands =
   | 'apollo'
   | 'figma'
   | 'jest'
+
+  export interface BrandData {
+    name: Brands
+    width?: number
+    height?: number
+    color?: string
+  }
