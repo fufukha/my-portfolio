@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core'
 import { GitHub as GitHubIcon, Launch as LaunchIcon } from '@material-ui/icons/'
 import TopicList from './TopicList'
+import ProjectLinks from './ProjectLinks'
 
 type CollaborationProps = {
   language: string
@@ -109,22 +110,7 @@ const Collaboration = ({
         <TopicList topicList={collabTopics} />
       </CardContent>
       <CardActions>
-        <IconButton
-          aria-label={`${title} Website`}
-          title={`${title} Website`}
-          href={homepageUrl}
-          component='a'
-        >
-          <LaunchIcon />
-        </IconButton>
-        <IconButton
-          aria-label={`${title} GitHub repository`}
-          title={`${title} GitHub repository`}
-          href={url}
-          component='a'
-        >
-          <GitHubIcon />
-        </IconButton>
+        <ProjectLinks url={url} homepageUrl={homepageUrl} />
       </CardActions>
     </Card>
   )

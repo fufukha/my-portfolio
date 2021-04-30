@@ -16,6 +16,7 @@ const ProjectLinks = ({ homepageUrl, url, size }: ProjectLinksProps) => {
           title='Project\s website'
           disabled={homepageUrl === undefined}
           href={homepageUrl}
+          target='_blank'
           component='a'
           size={size ? size : 'medium'}
         >
@@ -28,6 +29,7 @@ const ProjectLinks = ({ homepageUrl, url, size }: ProjectLinksProps) => {
           title='GitHub repository'
           disabled={url === undefined}
           href={url}
+          target='_blank'
           component='a'
         >
           <GitHubIcon />

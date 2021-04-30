@@ -150,6 +150,7 @@ const Menu = () => {
             button
             component='a'
             href={link.href}
+            target={link.name ===  'email' ? '_self' :'_blank'}
             key={i}
           >
             <ListItemIcon className={classes.listItemIcon}>
