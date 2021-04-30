@@ -57,6 +57,7 @@ export default function Home() {
 
   return (
     <motion.section className={classes.section} variants={stagger}>
+      <div dangerouslySetInnerHTML={{ __html: `<!-- Design inspired by Louis Rätz -->` }}/>
       <motion.header variants={fadeInUp}>
         <Typography component='h1' variant='h2' gutterBottom>
           I am Kamile,
@@ -109,6 +110,7 @@ export default function Home() {
           <span aria-hidden='true'>]</span>
         </Button>
       </motion.article>
+      <div dangerouslySetInnerHTML={{ __html: `<!-- Design inspired END -->` }}/>
     </motion.section>
   )
 }
