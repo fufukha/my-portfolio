@@ -5,7 +5,7 @@ Requests to GitHub's GraphQL API are queried using [Apollo Client](https://www.a
 
 It uses [Framer Motion](https://www.framer.com/motion/) for animation and [Material UI](https://material-ui.com/) for styled components and theming.
 
-The design prototyping was created using [Figma](https://www.figma.com/). The figma design file is [here](https://github.com/fufukha/my-portfolio/blob/main/demo/portfolio_mock.fig). The instructions on how to import and view Figma files can be found [here](https://help.figma.com/hc/en-us/articles/360041003114-Import-files-into-Figma).
+The mobile design prototype was created using [Figma](https://www.figma.com/). The figma design file is [here](https://github.com/fufukha/my-portfolio/blob/main/demo/portfolio_mock.fig). The instructions on how to import and view Figma files can be found [here](https://help.figma.com/hc/en-us/articles/360041003114-Import-files-into-Figma).
 
 ## 🧪 Demo
 
