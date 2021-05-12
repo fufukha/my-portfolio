@@ -14,7 +14,6 @@ import { GitHub, Menu as MenuIcon } from '@material-ui/icons'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useState } from 'react'
-import { MenuLink, Paths, PersonalLinks } from '../types'
 import { paths, menuDrawer, email } from '../config/config.json'
 
 const useStyles = makeStyles<Theme>(({ typography }) => ({
@@ -118,7 +117,7 @@ const Menu = () => {
       <List className={classes.pathList} component='ul'>
         {paths.map((path, i: number) => {
           const color =
-            router.pathname === path.name ? 'primary' : 'textPrimary'
+            router.pathname === path.href ? 'primary' : 'textPrimary'
 
           return (
             <ListItem
