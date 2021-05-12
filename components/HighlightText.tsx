@@ -9,24 +9,24 @@ const HighlightText = ({ children }: HighlightTextProps) => {
   const keywords = `\\b${highLightKeywords.join('\\b|\\b')}\\b`
   const regexp = new RegExp(keywords, 'gi')
 
-  const intro = children.split(' ').map((word) => {
+  const newChildren = children.split(' ').map((word, i) => {
     if (word.match(regexp)) {
       const lastChar = word[word.length - 1]
       if (lastChar.match(/[,.!?\\-]/g)) {
         return (
           <>
-            <span>{word.substring(0, word.length - 1)}</span>
+            <span key={i}>{word.substring(0, word.length - 1)}</span>
             {lastChar + ' '}
           </>
         )
       } else {
-        return <span>{word + ' '}</span>
+        return <span key={i}>{word + ' '}</span>
       }
     }
-    return `${word} `
+    return <React.Fragment key={i}>{`${word} `}</React.Fragment>
   })
 
-  return <>{intro}</>
+  return <>{newChildren}</>
 }
 
 export default HighlightText
