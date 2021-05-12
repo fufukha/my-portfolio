@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, stagger, unCover } from '../animation'
 import BrandList from '../components/BrandList'
 import data from '../config/config.json'
-import HighLightText from '../components/HighlightText'
+import HighlightText from '../components/HighlightText'
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   section: {
@@ -76,9 +76,9 @@ export default function Home() {
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
         <Typography component='p' variant='body1' color='textSecondary'>
-          <HighLightText words={data.highLightKeywords}>
+          <HighlightText words={data.highlightKeywords}>
             {data.intro.text}
-          </HighLightText>
+          </HighlightText>
           {data.intro.spoiler.length && (
             <span
               title='spoiler alert'
