@@ -15,34 +15,34 @@
     "typescript",
     "web accessibility"
   ],
-  "pathName": [
+  "paths": [
     {
       "name": "home",
-      "path": "/"
+      "href": "/"
     },
     {
       "name": "projects",
-      "path": "/projects"
+      "href": "/projects"
     },
     {
       "name": "journey",
-      "path": "/journey"
+      "href": "/journey"
     }
   ],
   "menuDrawer": {
     "personalLinks": [
       {
-        "iconName": "GitHub",
+        "iconName": "github",
         "name": "github",
         "href": "https://github.com/fufukha"
       },
       {
-        "iconName": "Code",
+        "iconName": "code",
         "name": "leetcode",
         "href": "https://leetcode.com/fufukha"
       },
       {
-        "iconName": "Mail",
+        "iconName": "mail",
         "name": "email"
       }
     ]

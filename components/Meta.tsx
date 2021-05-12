@@ -23,6 +23,10 @@ const Meta = ({
         href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700&family=Source+Code+Pro:wght@500;700;900&display=swap'
         rel='stylesheet'
       />
+      <link
+        rel='stylesheet'
+        href='https://fonts.googleapis.com/icon?family=Material+Icons'
+      />
       <title>{title}</title>
     </Head>
   )
