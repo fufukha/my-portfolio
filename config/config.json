@@ -67,6 +67,37 @@
       }
     ]
   },
+  "repo": [
+    {
+      "name": "Data Visualization",
+      "language": "javascript",
+      "imageUrl": "/images/dv.png",
+      "description": "Graphic visuals represenating of data from 885 of my ESL students. Features a chorochromatic map, bar chart and pie chart. Data was collected via a webscrawler written in Python.",
+      "topics": [
+        "javascript",
+        "data-visualization",
+        "leaftlet",
+        "mapbox",
+        "chartjs",
+        "web-crawler",
+        "python",
+        "scrapy"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "name": "xstream",
+      "timeframe": "June 2019 - present",
+      "paragraphs": [
+        "• Implemented new features independently or paired with senior developer",
+        "• Brainstormed and designed new features",
+        "• Created mock-ups using Figma and Sketchpad",
+        "• Delivered a responsive application",
+        "• Researched new technologies to provide technical insight"
+      ]
+    }
+  ],
   "steps": [
     {
       "label": "University",
