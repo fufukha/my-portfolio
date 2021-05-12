@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, stagger, unCover } from '../animation'
 import BrandList from '../components/BrandList'
 import data from '../config/config.json'
+import HighLightText from '../components/HighlightText'
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   section: {
@@ -79,30 +80,14 @@ export default function Home() {
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
         <Typography component='p' variant='body1' color='textSecondary'>
-          Welcome to my portfolio. I am a self-taught{' '}
-          <span>front-end developer</span> who loves building <span>React</span>{' '}
-          applications. Recently, I have decided to turn this hobby of mine into
-          a full-fledged career. I pull together a selection of my projects for
-          you. These projects showcase my skills in <span>React</span>,{' '}
-          <span>Redux</span>, <span>Typescript</span>,{' '}
-          <span>web accessibility</span> as well as solutions to various
-          challenges these applications presented. I also welcome you to walk
-          through my journey into web developement and get a glimpse at my
-          future goals:{' '}
-          <span title="spoiler alert" aria-label="spoiler alert full stack" className={classes.spoiler}>
-            Full Stack!
-            <motion.span
-              role="presentation"
-              aria-hidden="true"
-              className={classes.spoilerOverlay}
-              whileTap={unCover.animate}
+          <HighLightText>{data.intro.text}</HighLightText>
           {data.intro.spoiler.length && (
             <span
               title='spoiler alert'
               aria-label='spoiler alert full stack'
               className={classes.spoiler}
             >
-              {data.intro.spoiler}
+              Full Stack!
               <motion.span
                 role='presentation'
                 aria-hidden='true'
