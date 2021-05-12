@@ -8,22 +8,15 @@ interface HighlightTextProps {
 const HighlightText = ({ children }: HighlightTextProps) => {
   const keywords = `\\b${highLightKeywords.join('\\b|\\b')}\\b`
   const regexp = new RegExp(keywords, 'gi')
+  const parts = children.split(regexp)
 
-  const newChildren = children.split(' ').map((word, i) => {
-    if (word.match(regexp)) {
-      const lastChar = word[word.length - 1]
-      if (lastChar.match(/[,.!?\\-]/g)) {
-        return (
-          <>
-            <span key={i}>{word.substring(0, word.length - 1)}</span>
-            {lastChar + ' '}
-          </>
-        )
-      } else {
-        return <span key={i}>{word + ' '}</span>
+  const newChildren = parts.map((part, i) => {
+    if (part !== undefined) {
+      if (highLightKeywords.includes(part.toLowerCase())) {
+        return <em key={i}>{part}</em>
       }
+      return <React.Fragment key={i}>{part}</React.Fragment>
     }
-    return <React.Fragment key={i}>{`${word} `}</React.Fragment>
   })
 
   return <>{newChildren}</>

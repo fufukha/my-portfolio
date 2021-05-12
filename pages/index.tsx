@@ -27,10 +27,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     '& > p': {
       marginBottom: '70px',
     },
-    '& p > span': {
-      color: palette.primary.main,
-      fontWeight: 500,
-    },
     '& > a': {
       alignSelf: 'center',
       maxWidth: '200px',
@@ -87,7 +83,7 @@ export default function Home() {
               aria-label='spoiler alert full stack'
               className={classes.spoiler}
             >
-              Full Stack!
+              {data.intro.spoiler}
               <motion.span
                 role='presentation'
                 aria-hidden='true'

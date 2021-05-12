@@ -4,13 +4,12 @@
   "email": "kamile.mkb@gmail.com",
   "location": "the US",
   "intro": {
-    "text": "Welcome to my portfolio. I am a self-taught front-end developer who loves building React applications. Recently, I have decided to turn this hobby of mine into a full-fledged career. I pull together a selection of my projects for you. These projects showcase my skills in React, Redux, TypeScript, web accessibility as well as solutions to various challenges these applications presented. I also welcome you to walk through my journey into web developement and get a glimpse at my future goals:",
+    "text": "Welcome to my portfolio. I am a self-taught front-end developer who loves building React applications. Recently, I have decided to turn this hobby of mine into a full-fledged career. I pull together a selection of my projects for you. These projects showcase my skills in React, Redux, TypeScript, web accessibility as well as solutions to various challenges these applications presented. I also welcome you to walk through my journey into web developement and get a glimpse at my future goals: ",
     "spoiler": "Full Stack!"
   },
   "highLightKeywords": [
     "react",
-    "front-end",
-    "developer",
+    "front-end developer",
     "redux",
     "typescript",
     "web accessibility"
