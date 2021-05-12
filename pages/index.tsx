@@ -3,6 +3,8 @@ import { ArrowForwardIos as ArrowForwardIosIcon } from '@material-ui/icons'
 import { motion } from 'framer-motion'
 import { fadeInUp, stagger, unCover } from '../animation'
 import BrandList from '../components/BrandList'
+import data from '../config/config.json'
+import HighlightText from '../components/HighlightText'
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   section: {
@@ -24,10 +26,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     paddingTop: '20px',
     '& > p': {
       marginBottom: '70px',
-    },
-    '& p > span': {
-      color: palette.primary.main,
-      fontWeight: 500,
     },
     '& > a': {
       alignSelf: 'center',
@@ -57,44 +55,47 @@ export default function Home() {
 
   return (
     <motion.section className={classes.section} variants={stagger}>
-      <div dangerouslySetInnerHTML={{ __html: `<!-- Design inspired by Louis Rätz -->` }}/>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `<!-- Design inspired by Louis Rätz -->`,
+        }}
+      />
       <motion.header variants={fadeInUp}>
         <Typography component='h1' variant='h2' gutterBottom>
-          I am Kamile,
+          {`I am ${data.name},`}
         </Typography>
         <Typography component='h2' variant='h1' gutterBottom>
-          Web / React Developer
+          {data.jobTitle}
         </Typography>
         <div className={classes.location}>
           <ArrowForwardIosIcon color='primary' fontSize={'large'} />
           <Typography component='h3' variant='h2'>
-            based in the US
+            {`based in ${data.location}`}
           </Typography>
         </div>
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
         <Typography component='p' variant='body1' color='textSecondary'>
-          Welcome to my portfolio. I am a self-taught{' '}
-          <span>front-end developer</span> who loves building <span>React</span>{' '}
-          applications. Recently, I have decided to turn this hobby of mine into
-          a full-fledged career. I pull together a selection of my projects for
-          you. These projects showcase my skills in <span>React</span>,{' '}
-          <span>Redux</span>, <span>Typescript</span>,{' '}
-          <span>web accessibility</span> as well as solutions to various
-          challenges these applications presented. I also welcome you to walk
-          through my journey into web developement and get a glimpse at my
-          future goals:{' '}
-          <span title="spoiler alert" aria-label="spoiler alert full stack" className={classes.spoiler}>
-            Full Stack!
-            <motion.span
-              role="presentation"
-              aria-hidden="true"
-              className={classes.spoilerOverlay}
-              whileTap={unCover.animate}
+          <HighlightText words={data.highlightKeywords}>
+            {data.intro.text}
+          </HighlightText>
+          {data.intro.spoiler.length && (
+            <span
+              title='spoiler alert'
+              aria-label='spoiler alert full stack'
+              className={classes.spoiler}
             >
-              Spoiler Alert
-            </motion.span>
-          </span>
+              {data.intro.spoiler}
+              <motion.span
+                role='presentation'
+                aria-hidden='true'
+                className={classes.spoilerOverlay}
+                whileTap={unCover.animate}
+              >
+                Spoiler Alert
+              </motion.span>
+            </span>
+          )}
         </Typography>
         <BrandList />
         <Button
@@ -110,7 +111,9 @@ export default function Home() {
           <span aria-hidden='true'>]</span>
         </Button>
       </motion.article>
-      <div dangerouslySetInnerHTML={{ __html: `<!-- Design inspired END -->` }}/>
+      <div
+        dangerouslySetInnerHTML={{ __html: `<!-- Design inspired END -->` }}
+      />
     </motion.section>
   )
 }

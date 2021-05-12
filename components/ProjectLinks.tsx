@@ -13,7 +13,7 @@ const ProjectLinks = ({ homepageUrl, url, size }: ProjectLinksProps) => {
       {homepageUrl && (
         <IconButton
           aria-label='Project\s website'
-          title='Project\s website'
+          title="Project's website"
           disabled={homepageUrl === undefined}
           href={homepageUrl}
           target='_blank'

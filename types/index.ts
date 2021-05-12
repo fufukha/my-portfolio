@@ -58,43 +58,11 @@ export interface IProject {
 }
 
 export interface StepData {
-  label: string | JSX.Element
-  content: string | JSX.Element
+  label: string
+  content: string
   arabicContent?: string
   url?: string
   homepageUrl?: string
-}
-
-export enum MenuLink {
-  NAME_GITHUB = 'github',
-  NAME_LEETCODE = 'leetcode',
-  NAME_EMAIL = 'email',
-  HREF_GITHUB = 'https://github.com/fufukha',
-  HREF_LEETCODE = 'https://leetcode.com/fufukha',
-  HREF_EMAIL = 'mailto: kamile.mkb@gmail.com',
-}
-
-interface GithubLink {
-  name: MenuLink.NAME_GITHUB
-  href: MenuLink.HREF_GITHUB
-}
-
-interface LeetcodeLink {
-  name: MenuLink.NAME_LEETCODE
-  href: MenuLink.HREF_LEETCODE
-}
-
-interface EmailLink {
-  name: MenuLink.NAME_EMAIL
-  href: MenuLink.HREF_EMAIL
-}
-
-export type PersonalLinks = [GithubLink, LeetcodeLink, EmailLink]
-
-export enum Paths {
-  HOME = '/',
-  PROJECTS = '/projects',
-  JOURNEY = '/journey',
 }
 
 export type Brands =
@@ -109,9 +77,9 @@ export type Brands =
   | 'figma'
   | 'jest'
 
-  export interface BrandData {
-    name: Brands
-    width?: number
-    height?: number
-    color?: string
-  }
+export interface BrandData {
+  name: Brands
+  width?: number
+  height?: number
+  color?: string
+}
