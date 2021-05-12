@@ -76,7 +76,9 @@ export default function Home() {
       </motion.header>
       <motion.article className={classes.article} variants={fadeInUp}>
         <Typography component='p' variant='body1' color='textSecondary'>
-          <HighLightText>{data.intro.text}</HighLightText>
+          <HighLightText words={data.highLightKeywords}>
+            {data.intro.text}
+          </HighLightText>
           {data.intro.spoiler.length && (
             <span
               title='spoiler alert'
