@@ -58,8 +58,8 @@ export interface IProject {
 }
 
 export interface StepData {
-  label: string | JSX.Element
-  content: string | JSX.Element
+  label: string
+  content: string
   arabicContent?: string
   url?: string
   homepageUrl?: string
@@ -109,9 +109,9 @@ export type Brands =
   | 'figma'
   | 'jest'
 
-  export interface BrandData {
-    name: Brands
-    width?: number
-    height?: number
-    color?: string
-  }
+export interface BrandData {
+  name: Brands
+  width?: number
+  height?: number
+  color?: string
+}

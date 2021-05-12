@@ -13,6 +13,8 @@ import {
 import React, { useRef } from 'react'
 import { StepData } from '../types'
 import ProjectLinks from './ProjectLinks'
+import HighlightText from '../components/HighlightText'
+import { highlightKeywords } from '../config/config.json'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -72,9 +74,8 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
     setActiveStep(0)
     window.scrollTo({
       behavior: 'smooth',
-      top: 0
+      top: 0,
     })
-
   }
 
   const classes = useStyles()
@@ -86,7 +87,11 @@ const VerticalStepper = ({ steps }: VerticalStepperProps) => {
           <Step key={index} ref={stepRef}>
             <StepLabel>{step.label}</StepLabel>
             <StepContent>
-              <Typography className={classes.text}>{step.content}</Typography>
+              <Typography className={classes.text}>
+                <HighlightText words={highlightKeywords}>
+                  {step.content}
+                </HighlightText>
+              </Typography>
               {step.arabicContent && (
                 <Typography className={classes.arabicText} lang='ar'>
                   {step.arabicContent}

@@ -7,12 +7,33 @@
     "text": "Welcome to my portfolio. I am a self-taught front-end developer who loves building React applications. Recently, I have decided to turn this hobby of mine into a full-fledged career. I pull together a selection of my projects for you. These projects showcase my skills in React, Redux, TypeScript, web accessibility as well as solutions to various challenges these applications presented. I also welcome you to walk through my journey into web developement and get a glimpse at my future goals: ",
     "spoiler": "Full Stack!"
   },
-  "highLightKeywords": [
+  "highlightKeywords": [
     "react",
     "front-end developer",
     "redux",
     "typescript",
-    "web accessibility"
+    "web accessibility",
+    "coding",
+    "ruby",
+    "javascript",
+    "html",
+    "css",
+    "memory game",
+    "responsive design",
+    "mobile-first",
+    "data structures and algorithms",
+    "firebase",
+    "collaborate",
+    "front-end",
+    "back-end",
+    "career",
+    "heart"
+  ],
+  "textToIcon": [
+    {
+      "text": "heart",
+      "iconName": "heart"
+    }
   ],
   "paths": [
     {
@@ -46,7 +67,7 @@
       }
     ]
   },
-  "journeySteps": [
+  "steps": [
     {
       "label": "University",
       "content": "I graduated UofR with a Bachelor's degree in Microbiology and a minor in Arabic.",
@@ -55,7 +76,7 @@
     },
     {
       "label": "Teaching",
-      "content": "Teaching English as a second language remotely has connected me to people from across the world. My interest in coding actually began after reviewing a student's dissertation on programming languages and methodology. I was so fascinated by it that I&mdash;with zero prior knowledge&mdash;decided to venture into the world of coding.",
+      "content": "Teaching English as a second language remotely has connected me to people from across the world. My interest in coding actually began after reviewing a student's dissertation on programming languages and methodology. I was so fascinated by it that I—with zero prior knowledge—decided to venture into the world of coding.",
       "url": ""
     },
     {
@@ -85,7 +106,7 @@
       "label": "First Team Project",
       "content": "I was invited to collaborate on a project. It was an incredible experience to work alongside another developer. I was responsible for designing and implementing entire features and paired with the lead developer on several others. I also presented my ideas that I thought were meaningful to the project or that particular roll-out. This was also my first time working with Firebase.",
       "url": "https://github.com/abogalambo/xstream",
-      "homepageUrl": "'http://x-stream-45773.firebaseapp.com'"
+      "homepageUrl": "http://x-stream-45773.firebaseapp.com"
     },
     {
       "label": "TypeScript",
