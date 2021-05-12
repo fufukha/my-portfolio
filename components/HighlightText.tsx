@@ -52,7 +52,7 @@ const HighlightText = ({ children, words }: HighlightTextProps) => {
     return res
   }
 
-  return <>{newChildren}</>
+  return <>{newChildren()}</>
 }
 
 export default HighlightText
