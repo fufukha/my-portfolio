@@ -147,6 +147,15 @@ let darkTheme = createMuiTheme({
         fontWeidght: 400,
       },
     },
+    MuiTypography: {
+      root: {
+        '& em': {
+          fontStyle: 'normal',
+          color: cyan[500],
+          fontWeight: 500,
+        },
+      },
+    },
   },
 })
 

@@ -1,0 +1,153 @@
+{
+  "name": "Kamile",
+  "jobTitle": "Web / React Developer",
+  "email": "kamile.mkb@gmail.com",
+  "location": "the US",
+  "intro": {
+    "text": "Welcome to my portfolio. I am a self-taught front-end developer who loves building React applications. Recently, I have decided to turn this hobby of mine into a full-fledged career. I pulled together a selection of my projects for you. These projects showcase my skills in React, Redux, TypeScript, web accessibility as well as solutions to various challenges these applications presented. I also welcome you to walk through my journey into web developement and get a glimpse at my future goals: ",
+    "spoiler": "Full Stack!"
+  },
+  "highlightKeywords": [
+    "react",
+    "front-end developer",
+    "redux",
+    "typescript",
+    "web accessibility",
+    "coding",
+    "ruby",
+    "javascript",
+    "html",
+    "css",
+    "memory game",
+    "responsive design",
+    "mobile-first",
+    "data structures and algorithms",
+    "firebase",
+    "collaborate",
+    "front-end",
+    "back-end",
+    "career",
+    "heart"
+  ],
+  "textToIcon": [
+    {
+      "text": "heart",
+      "iconName": "heart"
+    }
+  ],
+  "paths": [
+    {
+      "name": "home",
+      "href": "/"
+    },
+    {
+      "name": "projects",
+      "href": "/projects"
+    },
+    {
+      "name": "journey",
+      "href": "/journey"
+    }
+  ],
+  "menuDrawer": {
+    "personalLinks": [
+      {
+        "iconName": "github",
+        "name": "github",
+        "href": "https://github.com/fufukha"
+      },
+      {
+        "iconName": "code",
+        "name": "leetcode",
+        "href": "https://leetcode.com/fufukha"
+      },
+      {
+        "iconName": "mail",
+        "name": "email"
+      }
+    ]
+  },
+  "repo": [
+    {
+      "name": "Data Visualization",
+      "language": "javascript",
+      "imageUrl": "/images/dv.png",
+      "description": "Graphic visuals represenating of data from 885 of my ESL students. Features a chorochromatic map, bar chart and pie chart. Data was collected via a webscrawler written in Python.",
+      "topics": [
+        "javascript",
+        "data-visualization",
+        "leaftlet",
+        "mapbox",
+        "chartjs",
+        "web-crawler",
+        "python",
+        "scrapy"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "name": "xstream",
+      "timeframe": "June 2019 - present",
+      "paragraphs": [
+        "• Implemented new features independently or paired with senior developer",
+        "• Brainstormed and designed new features",
+        "• Created mock-ups using Figma and Sketchpad",
+        "• Delivered a responsive application",
+        "• Researched new technologies to provide technical insight"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "label": "University",
+      "content": "I graduated UofR with a Bachelor's degree in Microbiology and a minor in Arabic.",
+      "arabicContent": "تخرجت من جامعة روشيتر بدرجة البكالوريوس في الأحياء الدقيقة وتخصصت في اللغة العربية ",
+      "url": ""
+    },
+    {
+      "label": "Teaching",
+      "content": "Teaching English as a second language remotely has connected me to people from across the world. My interest in coding actually began after reviewing a student's dissertation on programming languages and methodology. I was so fascinated by it that I—with zero prior knowledge—decided to venture into the world of coding.",
+      "url": ""
+    },
+    {
+      "label": "Ruby",
+      "content": "Ruby was the first language I learned. Its English-like syntax is a great start for novices. I had a lot of fun building games in this language; however, I wanted to create applications that ran in the browser. Onward we go!",
+      "url": ""
+    },
+    {
+      "label": "JavaScript",
+      "content": "I gave up my beloved Ruby for JavaScript. The transition was tough at first but who can resist the language of the web? With JavaScript, HTML, and CSS, I started building and designing applications. My proudest application at the time was Memory Game.",
+      "url": "https://github.com/fufukha/memory-game",
+      "homepageUrl": "https://fufukha.github.io/memory-game/"
+    },
+    {
+      "label": "Responsive Design",
+      "content": "After learning the fundamentals of responsive design and design strategies such as mobile-first, I created sample pages of my own design, and clones.",
+      "url": "https://github.com/fufukha/minesweeper",
+      "homepageUrl": "https://fufukha.github.io/minesweeper/"
+    },
+    {
+      "label": "React",
+      "content": "Ah... React. Around this time, my most challenging React application was Minesweeper. Originally, I built it to focus on using Redux to manage the state but it also led me to delve deeper into data structures and algorithms. Since then I have built numerous React applications.",
+      "url": "https://github.com/fufukha/minesweeper",
+      "homepageUrl": "https://fufukha.github.io/minesweeper/"
+    },
+    {
+      "label": "First Team Project",
+      "content": "I was invited to collaborate on a project. It was an incredible experience to work alongside another developer. I was responsible for designing and implementing entire features and paired with the lead developer on several others. I also presented my ideas that I thought were meaningful to the project or that particular roll-out. This was also my first time working with Firebase.",
+      "url": "https://github.com/abogalambo/xstream",
+      "homepageUrl": "http://x-stream-45773.firebaseapp.com"
+    },
+    {
+      "label": "TypeScript",
+      "content": "I heart TypeScript! No more silly typos and passing the wrong arguments!",
+      "url": "https://github.com/fufukha/type-in-arabic",
+      "homepageUrl": "https://fufukha.github.io/type-in-arabic"
+    },
+    {
+      "label": "Future",
+      "content": "I have gained a lot of experience building applications, and researching and learning technologies to suit my needs. However, building and designing web app as just a hobby is no longer scratching the itch. I am excited to turn front-end development into a full time career. As for my study goals, I would love to explore the back-end more and become more Full Stack."
+    }
+  ]
+}

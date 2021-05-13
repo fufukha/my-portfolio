@@ -2,14 +2,14 @@ import { makeStyles, Typography } from '@material-ui/core'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import { fadeInUp, stagger } from '../animation'
-import Collaboration from '../components/Collaboration'
+import Experience from '../components/Experience'
 import ProjectGrid from '../components/ProjectGrid'
 import Meta from '../components/Meta'
 import { viewer } from '../config'
 import apolloClient from '../lib/apolloClient'
 import { PINNED_REPOSITORIES } from '../lib/apolloClient/queries'
-import { Repository, IProject } from '../types'
-import { dataVisualization } from '../utilis'
+import { Repository, IProject, DataVisualization } from '../types'
+import { repo, experiences } from '../config/config.json'
 import { getImgUrl, getLang, getTopics } from '../utilis/index'
 
 const useStyles = makeStyles({
@@ -41,6 +41,7 @@ const projects = ({ repositories }: ProjectProps) => {
     (accu: IProject[], cv, i) => {
       if (cv.name === 'minesweeper') {
         let data = {} as IProject
+        const dataVisualization = repo[0] as DataVisualization
         data.title = dataVisualization.name
         data.language = dataVisualization.language
         data.imageUrl = dataVisualization.imageUrl
@@ -65,12 +66,18 @@ const projects = ({ repositories }: ProjectProps) => {
   )
 
   const collaborations = collabsRepos.map((repo, i) => (
-    <Collaboration
+    <Experience
       key={i}
       language={getLang(repo.name)}
       title={repo.name}
       imageUrl={getImgUrl(repo.openGraphImageUrl)}
       topics={getTopics(repo.repositoryTopics.nodes)}
+      timeframe={
+        repo.name === experiences[i].name ? experiences[i].timeframe : ''
+      }
+      paragraphs={
+        repo.name === experiences[i].name ? experiences[i].paragraphs : []
+      }
       url={repo.url}
       homepageUrl={repo.homepageUrl}
     />
