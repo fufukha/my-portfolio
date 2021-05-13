@@ -47,8 +47,9 @@ const Experience = ({
 
   const classes = useStyles()
 
-  const content = paragraphs.map((para) => (
+  const content = paragraphs.map((para, i) => (
     <Typography
+      key={i}
       component='p'
       color='textSecondary'
       variant='body1'
